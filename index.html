@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E30613">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://hikeapp.fr/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hikeapp.fr/">
+<meta property="og:title" content="HIKE · La rando qui s'adapte à toi">
+<meta property="og:description" content="Des étapes qui finissent là où tu peux dormir, une carte qui marche sans réseau et les secours en un geste. Sortie au printemps 2027.">
+<meta property="og:image" content="https://hikeapp.fr/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>HIKE · La rando qui s'adapte à toi</title>
+<meta name="description" content="HIKE, l'appli de randonnée itinérante : des étapes qui finissent là où tu peux dormir, une carte qui marche sans réseau et les secours en un geste. Sortie au printemps 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800;1,900&display=swap">
+<style>
+/* Concept : la page est un carnet de route. Un sentier rouge descend dans la marge gauche,
+   chaque section est un village où l'on s'arrête, jusqu'au drapeau d'arrivée. */
+:root {
+  --paper: #FAF8F6;      /* fond, blanc cassé de l'appli */
+  --card: #FFFFFF;
+  --ink: #2E2E33;        /* anthracite */
+  --muted: #6F6F76;
+  --red: #E30613;        /* rouge HIKE */
+  --red-ink: #C8141D;    /* rouge pour le texte */
+  --line: #EDE6E4;
+  --pale: #FBE9E8;
+  --sea: #D9E5EA;
+  --on-red: #FFFFFF;
+  --shadow: rgba(46, 46, 51, .18);
+  --font: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --rail: 56px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #151315; --card: #211D20; --ink: #F3EEEC; --muted: #B3AAAD; --red-ink: #FF6B6B;
+    --line: #342D30; --pale: #3A1E21; --sea: #1D282D; --shadow: rgba(0, 0, 0, .55); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #151315; --card: #211D20; --ink: #F3EEEC; --muted: #B3AAAD; --red-ink: #FF6B6B;
+  --line: #342D30; --pale: #3A1E21; --sea: #1D282D; --shadow: rgba(0, 0, 0, .55); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 8px; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- en-tête ---------- */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.logo {
+  display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 14px;
+  background: var(--red); color: var(--on-red); text-decoration: none;
+  font: italic 900 15px/1 var(--font); letter-spacing: -.02em;
+}
+.top a.small { font-weight: 700; font-size: 15px; text-decoration: none; padding: 10px 0; color: var(--red-ink); }
+
+/* ---------- le sentier en marge ---------- */
+.leg { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); }
+.rail { position: relative; }
+.rail svg.path { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.rail svg.path path { fill: none; stroke: var(--red); stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.rail .halo { stroke: var(--paper) !important; stroke-width: 13 !important; }
+.pin {
+  position: absolute; left: 50%; top: 6px; width: 26px; height: 26px; margin-left: -13px; border-radius: 50%;
+  background: var(--paper); border: 6px solid var(--red); z-index: 1;
+}
+.leg-body { min-width: 0; padding-block: 0 88px; }
+.place { font-size: 15px; font-weight: 600; color: var(--muted); margin-bottom: 14px; }
+
+/* ---------- typographie ---------- */
+.display { font: italic 900 clamp(44px, 7vw, 86px)/.96 var(--font); letter-spacing: -.035em; }
+.h2 { font: italic 900 clamp(36px, 5.6vw, 68px)/1 var(--font); letter-spacing: -.03em; }
+.lead { font-size: clamp(19px, 2.1vw, 23px); line-height: 1.45; color: var(--muted); max-width: 34em; }
+.body { color: var(--muted); max-width: 36em; }
+
+/* ---------- boutons ---------- */
+.cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 0 30px;
+  border-radius: 999px; background: var(--red); color: var(--on-red); text-decoration: none;
+  font: italic 900 19px/1 var(--font); letter-spacing: .01em;
+  box-shadow: 0 16px 30px -14px rgba(227, 6, 19, .65); transition: transform .15s ease;
+}
+.cta:hover { transform: translateY(-2px); }
+.cta svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.fineprint { font-size: 15px; color: var(--muted); }
+
+/* ---------- hero ---------- */
+.hero { display: grid; gap: 40px; align-items: center; }
+.hero-text { display: grid; gap: 26px; justify-items: start; min-width: 0; }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1.5fr) minmax(0, .7fr); } }
+
+/* ---------- bulles ---------- */
+.bubbles { display: grid; gap: 16px; justify-items: start; margin-block: 30px 34px; }
+.bubble {
+  background: var(--ink); color: var(--paper); font: italic 900 clamp(26px, 4.2vw, 46px)/1.05 var(--font);
+  letter-spacing: -.02em; padding: 20px 30px 22px; border-radius: 34px 34px 34px 10px; max-width: 100%;
+}
+.bubble.alt { background: var(--red); color: var(--on-red); border-radius: 34px 34px 10px 34px; margin-left: clamp(0px, 6vw, 80px); }
+.ask {
+  display: inline-block; background: var(--ink); color: var(--paper); font-weight: 700; font-size: 16px;
+  padding: 9px 18px 10px; border-radius: 20px 20px 20px 6px; margin-bottom: 18px;
+}
+
+/* ---------- sections fonctions ---------- */
+.feature { display: grid; gap: 36px; align-items: center; }
+@media (min-width: 900px) { .feature { grid-template-columns: minmax(0, 1fr) 340px; gap: 56px; } }
+.feature-text { display: grid; gap: 20px; min-width: 0; }
+.points { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 14px; }
+.points li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; align-items: start; }
+.points li::before {
+  content: ""; width: 14px; height: 14px; margin-top: 6px; border-radius: 50%;
+  border: 4px solid var(--red); background: var(--paper);
+}
+.points strong { color: var(--ink); }
+.points span { color: var(--muted); }
+
+/* ---------- téléphone (toujours aux couleurs claires de l'appli) ---------- */
+.phone {
+  justify-self: center; width: min(300px, 100%); border-radius: 46px; padding: 11px; background: #2E2E33;
+  box-shadow: 0 40px 70px -30px var(--shadow), inset 0 0 0 2px #46464d; position: relative;
+}
+.phone::before { content: ""; position: absolute; top: 22px; left: 50%; width: 92px; height: 26px; margin-left: -46px; border-radius: 16px; background: #2E2E33; z-index: 2; }
+.screen {
+  border-radius: 36px; overflow: hidden; background: #FAF8F6; color: #2E2E33;
+  aspect-ratio: 9 / 18.6; display: flex; flex-direction: column; font-size: 12px; line-height: 1.35;
+}
+.status { display: flex; justify-content: space-between; padding: 16px 24px 8px; font-weight: 700; font-size: 11px; }
+.map { position: relative; background: #EEF0E6; overflow: hidden; }
+.map svg { display: block; width: 100%; height: 100%; }
+.sheet { background: #fff; border-radius: 22px 22px 0 0; margin-top: -22px; position: relative; padding: 16px 16px 0; flex: 1; display: grid; align-content: start; gap: 10px; }
+.s-title { font-weight: 800; font-size: 15px; }
+.s-stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; border-bottom: 1px solid #EDE6E4; padding-bottom: 10px; }
+.s-stats b { display: block; font-size: 15px; }
+.s-stats span { color: #6F6F76; font-size: 10px; }
+.s-steps { display: grid; gap: 9px; }
+.s-step { display: grid; grid-template-columns: 22px 1fr; gap: 9px; align-items: start; }
+.s-step i { width: 22px; height: 22px; border-radius: 50%; background: #E30613; color: #fff; font-style: normal; font-weight: 700; font-size: 11px; display: grid; place-items: center; }
+.s-step b { display: block; font-size: 12.5px; }
+.s-step span { color: #6F6F76; font-size: 10.5px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: #fff; border-radius: 999px; padding: 6px 11px; font-weight: 700; font-size: 11px; box-shadow: 0 6px 14px -8px rgba(0,0,0,.35); }
+.chip .ok { width: 14px; height: 14px; border-radius: 50%; background: #2E7D4F; display: grid; place-items: center; }
+.chip .ok svg { width: 9px; height: 9px; fill: none; stroke: #fff; stroke-width: 3.2; }
+.chip.dark { background: #2E2E33; color: #fff; }
+.float-card { position: absolute; left: 12px; right: 12px; background: #fff; border-radius: 16px; padding: 10px 13px; box-shadow: 0 10px 20px -12px rgba(0,0,0,.4); }
+.float-card small { display: block; color: #C8141D; font-weight: 700; font-size: 9.5px; letter-spacing: .04em; }
+.float-card .row { display: flex; justify-content: space-between; align-items: baseline; font-weight: 800; font-size: 16px; }
+.float-card .row em { color: #E30613; font-style: normal; }
+.btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.btns span { border-radius: 999px; text-align: center; padding: 10px 0; font: italic 900 12px/1 var(--font); }
+.sos { padding: 6px 16px 16px; display: grid; gap: 9px; }
+.sos h4 { margin: 0; font-size: 19px; font-weight: 800; }
+.sos .sub { color: #6F6F76; font-size: 11px; margin-top: -6px; }
+.sos .big { border-radius: 14px; padding: 12px 14px; color: #fff; }
+.sos .big b { display: block; font-size: 16px; font-style: italic; font-weight: 900; }
+.sos .big span { font-size: 10px; opacity: .85; }
+.sos .pos { background: #fff; border: 1px solid #EDE6E4; border-radius: 14px; padding: 10px 14px; }
+.sos .pos small { color: #C8141D; font-weight: 700; font-size: 9px; letter-spacing: .04em; }
+.sos .pos b { display: block; font-size: 14px; }
+.sos .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sos .grid span { background: #fff; border: 1px solid #EDE6E4; border-radius: 14px; padding: 12px; font-weight: 700; font-size: 11.5px; }
+
+/* ---------- en chemin ---------- */
+.stops { display: grid; gap: 18px; margin-top: 34px; }
+@media (min-width: 760px) { .stops { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.stop { display: grid; gap: 10px; align-content: start; padding: 26px 24px 28px; border-radius: 26px; background: var(--card); box-shadow: 0 20px 40px -30px var(--shadow); }
+.stop .ico { width: 58px; height: 58px; border-radius: 50%; border: 5px solid var(--red); display: grid; place-items: center; background: var(--paper); }
+.stop .ico svg { width: 26px; height: 26px; fill: none; stroke: var(--red); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.stop h3 { font: italic 900 26px/1.05 var(--font); letter-spacing: -.01em; }
+.stop p { color: var(--muted); font-size: 16px; }
+.stop .fig { font: italic 900 30px/1 var(--font); color: var(--red-ink); font-variant-numeric: tabular-nums; }
+
+/* ---------- fondatrice ---------- */
+.note { max-width: 40em; display: grid; gap: 18px; }
+.note blockquote { margin: 0; font: italic 800 clamp(24px, 3.2vw, 34px)/1.25 var(--font); letter-spacing: -.01em; }
+.note p { color: var(--muted); }
+.sign { font-weight: 700; color: var(--ink) !important; }
+
+/* ---------- feuille de route ---------- */
+.roadmap { display: grid; gap: 0; margin-top: 30px; max-width: 760px; }
+.road { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding-block: 16px; border-top: 1px solid var(--line); align-items: baseline; }
+.road:last-child { border-bottom: 1px solid var(--line); }
+.road .when { font-weight: 800; color: var(--red-ink); }
+.road b { font-size: 19px; }
+.road span { color: var(--muted); }
+.road.first b { font: italic 900 24px/1.1 var(--font); }
+
+/* ---------- questions fréquentes ---------- */
+.faq { display: grid; gap: 10px; margin-top: 30px; max-width: 780px; }
+.faq details { background: var(--card); border-radius: 20px; padding: 0 22px; box-shadow: 0 14px 30px -26px var(--shadow); }
+.faq summary { list-style: none; cursor: pointer; padding: 20px 34px 20px 0; font-weight: 700; font-size: 18px; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 11px; height: 11px; margin-top: -8px; border-right: 3px solid var(--red); border-bottom: 3px solid var(--red); transform: rotate(45deg); transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+.faq details p { padding-bottom: 20px; color: var(--muted); max-width: 40em; }
+
+/* ---------- arrivée ---------- */
+.finish { display: grid; gap: 24px; justify-items: start; }
+.flag { width: 46px; height: 62px; }
+.flag path { stroke: var(--ink); stroke-width: 4; stroke-linecap: round; fill: none; }
+.flag .cloth { fill: var(--red); stroke: none; }
+.sea { background: var(--sea); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; align-items: center; padding-block: 34px 44px; }
+footer .mail { font-weight: 700; user-select: all; }
+footer p { color: var(--muted); font-size: 15px; }
+
+@media (min-width: 760px) { :root { --rail: 120px; } .leg-body { padding-block-end: 120px; } }
+@media (prefers-reduced-motion: reduce) { .cta, .faq summary::after { transition: none; } .cta:hover { transform: none; } }
+</style>
+
+<style>
+/* Ajouts : signature de marque, chapitres Avant / Pendant / Après, écran de progression */
+.brandline { display: flex; align-items: center; gap: 16px; }
+.brandline .logo { width: 64px; height: 64px; border-radius: 17px; font-size: 18px; }
+.brandline span:not(.logo) { font: italic 900 clamp(22px, 3vw, 30px)/1.1 var(--font); letter-spacing: -.01em; color: var(--red-ink); }
+.chapter { display: grid; gap: 6px; margin-bottom: 30px; }
+.chapter .when { font-weight: 700; color: var(--red-ink); font-size: 16px; }
+.chapter .h2 { font-size: clamp(42px, 6.6vw, 80px); }
+.steps-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.steps-nav a { text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 999px; background: var(--card); box-shadow: 0 10px 24px -18px var(--shadow); }
+.steps-nav a b { color: var(--red-ink); margin-right: 6px; }
+.extra-row { display: grid; gap: 18px; margin-top: 44px; }
+@media (min-width: 760px) { .extra-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ring-wrap { display: grid; place-items: center; padding: 18px 0 8px; }
+.ring { width: 190px; height: 190px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(#A0541A 0 24.5%, transparent 24.5% 25.5%, #8592A3 25.5% 33%, #F3E6E4 33% 49.5%, transparent 49.5% 50.5%, #F3E6E4 50.5% 74.5%, transparent 74.5% 75.5%, #F3E6E4 75.5% 99%, transparent 99%); }
+.ring > div { width: 150px; height: 150px; border-radius: 50%; background: #FAF8F6; display: grid; place-content: center; text-align: center; }
+.ring b { font-size: 30px; font-weight: 800; }
+.ring span { color: #8592A3; font-weight: 700; font-size: 12px; }
+.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 0 14px; text-align: center; font-size: 9.5px; font-weight: 600; }
+.badges i { display: grid; place-items: center; width: 44px; height: 44px; margin: 0 auto 4px; border-radius: 50%; background: #FDEDBF; color: #D19A00; font-style: normal; font-size: 20px; }
+.badges .off i { background: #ECE9E7; color: #B9B4B1; }
+.post { margin: 4px 14px 0; background: #fff; border-radius: 16px; padding: 10px 12px; display: grid; gap: 6px; box-shadow: 0 8px 18px -12px rgba(0,0,0,.35); }
+.post .who { display: flex; gap: 8px; align-items: center; font-weight: 700; font-size: 11.5px; }
+.post .who i { width: 24px; height: 24px; border-radius: 50%; background: #E30613; color: #fff; font-style: normal; display: grid; place-items: center; font-size: 11px; }
+.post .pic { height: 74px; border-radius: 10px; background: linear-gradient(180deg, #CFE0E8 0 55%, #E7E2D2 55% 100%); position: relative; overflow: hidden; }
+.post .pic::after { content: ""; position: absolute; left: -10%; right: -10%; top: 52%; height: 5px; background: #E30613; transform: rotate(-4deg); border-radius: 3px; }
+.post small { color: #6F6F76; font-size: 10px; }
+.phone.real img { display: block; width: 100%; height: auto; border-radius: 36px; }
+.phone.real::before { top: 21px; width: 80px; height: 24px; margin-left: -40px; }
+</style>
+
+</head>
+<body>
+<header class="wrap top">
+  <a class="logo" href="/" aria-label="HIKE, retour en haut">HIKE</a>
+  <a class="small" href="#arrivee">Liste d'attente</a>
+</header>
+
+<main class="wrap">
+
+  <!-- Départ -->
+  <section class="leg" id="depart">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 20 C 85 220, 15 420, 50 620 S 85 900, 50 1000"/><path d="M50 20 C 85 220, 15 420, 50 620 S 85 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Départ · Perros-Guirec</p>
+      <div class="hero">
+        <div class="hero-text">
+          <div class="brandline"><span class="logo" aria-hidden="true">HIKE</span><span>La rando qui s'adapte à toi</span></div>
+          <h1 class="display">Du premier au dernier kilomètre, HIKE marche avec toi.</h1>
+          <p class="lead">Tu choisis ton départ et ton nombre de jours. HIKE découpe ton itinéraire en étapes qui finissent là où tu peux dormir, te guide même sans réseau et veille sur toi jusqu'à l'arrivée.</p>
+          <a class="cta" href="https://7d1bc99f.sibforms.com/serve/MUIFAJD4r1gDyaRbbMnj6oz1SfxVCs9GDAEmUDVJERjet1kcFFEZHpYWHpZUm-80yFwtGPNWpFM95r890IPPqEA63Y85XTw36V8vs_XE1Kfj1oX00S6r_ktlYKV-Z95MksxIvT3zz17zkj3wZ4oNDoz5PWMRFv2MxhAANRBblUpoWQrUJRKsvwzrchTSMNQIiwsiFfucnlWBd2cPAQ==" target="_blank" rel="noopener">Rejoindre la liste d'attente
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+          <p class="fineprint">Gratuite, sur iPhone et Android. Sortie au printemps 2027.</p>
+        </div>
+        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : écran d'accueil, prochaine rando Dinard → Plurien dans 3 jours, 4 jours et 96,8 km, avec la liste des choses à préparer."><img src="img/accueil.jpg" alt="" width="620" height="1342"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Les questions -->
+  <section class="leg">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 15 200, 85 400, 50 620 S 15 880, 50 1000"/><path d="M50 0 C 15 200, 85 400, 50 620 S 15 880, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Ploumanac'h</p>
+      <h2 class="h2">Sur le sentier, on finit toujours par se poser les mêmes questions.</h2>
+      <div class="bubbles">
+        <div class="bubble">Où je dors ce soir&nbsp;?</div>
+        <div class="bubble alt">Et si je n'ai plus de réseau&nbsp;?</div>
+        <div class="bubble">Et s'il m'arrive quelque chose&nbsp;?</div>
+      </div>
+      <p class="lead">HIKE a été pensée pour répondre à tous tes besoins sur le sentier, avant, pendant et après ta rando.</p>
+      <nav class="steps-nav" aria-label="Les trois temps de ta rando">
+        <a href="#prepare"><b>1</b>Prépare</a><a href="#vis"><b>2</b>Vis</a><a href="#partage"><b>3</b>Partage</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 1. Prépare -->
+  <section class="leg" id="prepare">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 85 250, 15 500, 50 700 S 85 900, 50 1000"/><path d="M50 0 C 85 250, 15 500, 50 700 S 85 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Trégastel</p>
+      <div class="chapter"><span class="when">1 · Avant de partir</span><h2 class="h2">Prépare ta rando avec HIKE.</h2></div>
+      <div class="feature">
+        <div class="feature-text">
+          <div><span class="ask">Où je dors ce soir&nbsp;?</span></div>
+          <p class="body">Indique ton départ, ton nombre de jours et les kilomètres que tu veux marcher chaque jour. HIKE découpe le sentier pour toi.</p>
+          <ul class="points">
+            <li><div><strong>Chaque étape finit là où tu peux dormir.</strong> <span>Gîte, camping, chambre d'hôte ou hôtel : l'étape s'arrête dans un village où passer la nuit.</span></div></li>
+            <li><div><strong>Ton rythme, dans le sens que tu veux.</strong> <span>Par durée ou entre deux villages. Tu vois la distance de chaque jour avant de partir.</span></div></li>
+            <li><div><strong>Ton sac, sans rien oublier.</strong> <span>Météo, nuits en gîte ou en bivouac, repas, niveau : ta liste de matériel se construit pour cette rando-là.</span></div></li>
+          </ul>
+        </div>
+        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : liste de mes itinéraires à venir, avec la durée, les kilomètres et l'état du sac."><img src="img/itineraires.jpg" alt="" width="620" height="1342"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Vis -->
+  <section class="leg" id="vis">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 15 250, 85 500, 50 700 S 15 900, 50 1000"/><path d="M50 0 C 15 250, 85 500, 50 700 S 15 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Île Grande</p>
+      <div class="chapter"><span class="when">2 · Sur le sentier</span><h2 class="h2">Vis ta rando avec HIKE.</h2></div>
+      <div class="feature">
+        <div class="feature-text">
+          <div><span class="ask">Et si je n'ai plus de réseau&nbsp;?</span></div>
+          <p class="body">Sur le littoral, le réseau disparaît souvent au mauvais moment. Tu télécharges la carte de ton itinéraire avant de partir, et HIKE te guide quoi qu'il arrive.</p>
+          <ul class="points">
+            <li><div><strong>Ta position en direct.</strong> <span>Le GPS du téléphone fonctionne sans réseau.</span></div></li>
+            <li><div><strong>Le prochain village et les km qui restent.</strong> <span>Tu sais toujours où tu en es dans ta journée.</span></div></li>
+            <li><div><strong>Une alerte si tu sors du sentier.</strong> <span>Pratique quand le balisage se fait discret.</span></div></li>
+          </ul>
+        </div>
+        <div class="phone" role="img" aria-label="Écran de l'appli HIKE en mode rando hors-ligne : prochain village Trégastel à 3,2 km.">
+          <div class="screen" aria-hidden="true">
+            <div class="map" style="flex:1">
+              <svg viewBox="0 0 300 560" preserveAspectRatio="xMidYMid slice">
+                <rect width="300" height="560" fill="#EEF0E6"/>
+                <path d="M0 360 C 70 330, 110 380, 170 350 S 260 330, 300 345 L300 560 L0 560 Z" fill="#D5E4EA"/>
+                <path d="M40 0 L120 260 L100 340" stroke="#fff" stroke-width="7" fill="none"/>
+                <path d="M240 0 L215 300" stroke="#fff" stroke-width="5" fill="none"/>
+                <path d="M-5 300 C 40 280, 70 320, 120 300 S 190 260, 230 285 S 280 260, 305 265" stroke="#E30613" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <circle cx="120" cy="300" r="17" fill="#fff"/><circle cx="120" cy="300" r="10" fill="#2E2E33"/>
+              </svg>
+              <div style="position:absolute;top:40px;left:12px;right:12px;display:flex;justify-content:space-between">
+                <span class="chip"><span class="ok"><svg viewBox="0 0 10 10"><path d="M2 5.2l2 2 4-4.4"/></svg></span>Hors-ligne</span>
+                <span class="chip dark">Pas de réseau</span>
+              </div>
+              <div class="float-card" style="top:84px"><small>PROCHAIN VILLAGE</small><div class="row">Trégastel <em>3,2 km</em></div></div>
+            </div>
+            <div class="sheet" style="flex:0 0 auto;padding-bottom:18px">
+              <div class="s-stats" style="border:0;padding:0"><div><b>6,8 km</b><span>parcourus</span></div><div><b>1 h 52</b><span>de marche</span></div><div><b>3,2 km</b><span>restants</span></div></div>
+              <div class="btns"><span style="border:2px solid #2E2E33">PAUSE</span><span style="background:#E30613;color:#fff">TERMINER</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature" style="margin-top:72px">
+        <div class="feature-text">
+          <div><span class="ask">Et s'il m'arrive quelque chose&nbsp;?</span></div>
+          <h3 class="h2" style="font-size:clamp(32px,4.6vw,54px)">Les secours en un geste.</h3>
+          <p class="body">Une cheville tordue, un brouillard qui tombe, une marée qui monte plus vite que prévu : le bouton SOS reste toujours à portée de main pendant ta rando.</p>
+          <ul class="points">
+            <li><div><strong>Tous les numéros d'urgence.</strong> <span>112, SAMU, pompiers, secours en mer (196), gendarmerie, et le 114 par SMS.</span></div></li>
+            <li><div><strong>Ta position exacte.</strong> <span>Prête à être dictée aux secours, même si tu ne sais pas où tu es.</span></div></li>
+            <li><div><strong>Ton contact d'urgence.</strong> <span>Un proche à prévenir en un geste.</span></div></li>
+          </ul>
+        </div>
+        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : écran SOS avec les numéros d'urgence 112, 15, 18, 196, 17 et 114 par SMS."><img src="img/sos.jpg" alt="" width="620" height="1342"></div>
+      </div>
+      <div class="extra-row" style="grid-template-columns:minmax(0,1fr)">
+        <div class="stop">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <h3>Les bons arrêts sur ta route</h3>
+          <p>Points d'eau, toilettes, boulangeries, pharmacies, campings, avec la distance au sentier et les horaires.</p>
+          <p class="fig">9 740 points utiles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Partage -->
+  <section class="leg" id="partage">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 85 250, 15 500, 50 700 S 85 900, 50 1000"/><path d="M50 0 C 85 250, 15 500, 50 700 S 85 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Trébeurden</p>
+      <div class="chapter"><span class="when">3 · Pendant et après</span><h2 class="h2">Partage ta rando avec HIKE.</h2></div>
+      <div class="feature">
+        <div class="feature-text">
+          <p class="body">Une rando, ça se raconte. HIKE garde la trace de chaque kilomètre et te permet de la partager avec ceux qui comptent.</p>
+          <ul class="points">
+            <li><div><strong>Tes proches te suivent en direct.</strong> <span>Envoie-leur un lien : ils voient où tu en es, sans installer l'appli.</span></div></li>
+            <li><div><strong>Publie ta rando.</strong> <span>Tes photos et ton parcours dans le fil HIKE, pour tes amis ou pour tous les randonneurs.</span></div></li>
+            <li><div><strong>Fais profiter les autres de tes bons spots.</strong> <span>Coins de bivouac, points de vue, sources : les randonneurs les ajoutent sur la carte, au fil de leurs randos.</span></div></li>
+            <li><div><strong>Chaque kilomètre compte.</strong> <span>Bronze à 10 km, puis Argent, Or et Platine. Et des badges : premier bivouac, Grimpeur, Explorateur…</span></div></li>
+          </ul>
+        </div>
+        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : ma progression, 41 km parcourus, palier Bronze, et mon activité."><img src="img/profil.jpg" alt="" width="620" height="1342"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi HIKE -->
+  <section class="leg">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 15 250, 85 500, 50 700 S 15 900, 50 1000"/><path d="M50 0 C 15 250, 85 500, 50 700 S 15 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Locquirec</p>
+      <div class="note">
+        <h2 class="h2">Pourquoi HIKE existe.</h2>
+        <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
+        <p>Ça fait plus de deux ans que je marche le sentier côtier breton par étapes. À chaque sortie, les mêmes galères : chercher un endroit où dormir au dernier moment, ne pas savoir si j'ai tout dans mon sac, et voir la carte refuser de charger quand le réseau disparaît.</p>
+        <p>HIKE rassemble tout ce qui m'a manqué, dans une seule appli, pensée pour les randonneurs qui partent plusieurs jours.</p>
+        <p class="sign">Marie, fondatrice de HIKE</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arrivée -->
+  <section class="leg" id="arrivee">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 15 120, 70 200, 50 260"/><path d="M50 0 C 15 120, 70 200, 50 260"/></svg>
+      <span class="pin" style="top:250px"></span>
+    </div>
+    <div class="leg-body">
+      <div class="finish">
+        <svg class="flag" viewBox="0 0 46 62" aria-hidden="true"><path d="M6 60V4"/><path class="cloth" d="M6 4l34 9-34 10z"/></svg>
+        <p class="place" style="margin:0">Arrivée · Guimaëc</p>
+        <h2 class="display">Sois parmi les premiers à marcher avec HIKE.</h2>
+        <p class="lead">Inscris-toi sur la liste d'attente : tu seras prévenu dès la sortie, au printemps 2027, et tu pourras l'essayer avant tout le monde.</p>
+        <a class="cta" href="https://7d1bc99f.sibforms.com/serve/MUIFAJD4r1gDyaRbbMnj6oz1SfxVCs9GDAEmUDVJERjet1kcFFEZHpYWHpZUm-80yFwtGPNWpFM95r890IPPqEA63Y85XTw36V8vs_XE1Kfj1oX00S6r_ktlYKV-Z95MksxIvT3zz17zkj3wZ4oNDoz5PWMRFv2MxhAANRBblUpoWQrUJRKsvwzrchTSMNQIiwsiFfucnlWBd2cPAQ==" target="_blank" rel="noopener">Rejoindre la liste d'attente
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <p class="fineprint">Un email au lancement, puis à chaque nouveau sentier. Pas de spam.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="sea">
+  <div class="wrap">
+    <span class="logo" aria-hidden="true">HIKE</span>
+    <p>La rando qui s'adapte à toi.</p>
+    <p>Contact : <span class="mail">hikeappli@gmail.com</span></p>
+  </div>
+</footer>
+
+</body>
+</html>
