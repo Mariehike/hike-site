@@ -256,6 +256,27 @@ footer p { color: var(--muted); font-size: 15px; }
 .post .pic { height: 74px; border-radius: 10px; background: linear-gradient(180deg, #CFE0E8 0 55%, #E7E2D2 55% 100%); position: relative; overflow: hidden; }
 .post .pic::after { content: ""; position: absolute; left: -10%; right: -10%; top: 52%; height: 5px; background: #E30613; transform: rotate(-4deg); border-radius: 3px; }
 .post small { color: #6F6F76; font-size: 10px; }
+.offres { display: grid; gap: 18px; margin-top: 34px; }
+@media (min-width: 820px) { .offres { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.offre { display: grid; gap: 16px; align-content: start; padding: 28px 26px 30px; border-radius: 28px; background: var(--card); box-shadow: 0 20px 40px -30px var(--shadow); }
+.offre h3 { font: italic 900 34px/1 var(--font); letter-spacing: -.02em; }
+.offre .prix { font-weight: 700; color: var(--muted); }
+.offre.premium { background: var(--red); color: var(--on-red); }
+.offre.premium .prix { color: rgba(255,255,255,.85); }
+.offre ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 11px; }
+.offre li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.offre li::before { content: ""; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; border: 3px solid var(--red); }
+.offre.premium li::before { border-color: #fff; }
+.offre .plus { font-size: 15px; opacity: .9; }
+.stores { display: flex; flex-wrap: wrap; gap: 10px; }
+.store { display: inline-flex; flex-direction: column; justify-content: center; min-height: 52px; padding: 6px 20px; border-radius: 14px; background: var(--ink); color: var(--paper); line-height: 1.15; }
+.store small { font-size: 12px; opacity: .8; }
+.store b { font-size: 17px; }
+.top nav { display: flex; gap: 6px 20px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 520px) { .top nav a[href="#offres"] { display: none; } }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; width: 100%; }
+footer nav a { text-decoration: none; font-weight: 600; font-size: 15px; }
+footer nav a:hover { text-decoration: underline; }
 .phone.real img { display: block; width: 100%; height: auto; border-radius: 36px; }
 .phone.real::before { top: 21px; width: 80px; height: 24px; margin-left: -40px; }
 </style>
@@ -264,7 +285,7 @@ footer p { color: var(--muted); font-size: 15px; }
 <body>
 <header class="wrap top">
   <a class="logo" href="/" aria-label="HIKE, retour en haut">HIKE</a>
-  <a class="small" href="#arrivee">Liste d'attente</a>
+  <nav><a class="small" href="#offres">Gratuit &amp; Premium</a><a class="small" href="/aide/">Aide</a><a class="small" href="#arrivee">Liste d'attente</a></nav>
 </header>
 
 <main class="wrap">
@@ -284,7 +305,8 @@ footer p { color: var(--muted); font-size: 15px; }
           <p class="lead">Tu choisis ton départ et ton nombre de jours. HIKE découpe ton itinéraire en étapes qui finissent là où tu peux dormir, te guide même sans réseau et veille sur toi jusqu'à l'arrivée.</p>
           <a class="cta" href="https://7d1bc99f.sibforms.com/serve/MUIFAJD4r1gDyaRbbMnj6oz1SfxVCs9GDAEmUDVJERjet1kcFFEZHpYWHpZUm-80yFwtGPNWpFM95r890IPPqEA63Y85XTw36V8vs_XE1Kfj1oX00S6r_ktlYKV-Z95MksxIvT3zz17zkj3wZ4oNDoz5PWMRFv2MxhAANRBblUpoWQrUJRKsvwzrchTSMNQIiwsiFfucnlWBd2cPAQ==" target="_blank" rel="noopener">Rejoindre la liste d'attente
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-          <p class="fineprint">Gratuite, sur iPhone et Android. Sortie au printemps 2027.</p>
+          <p class="fineprint">Gratuite, avec une option Premium. Sortie au printemps 2027.</p>
+          <div class="stores" aria-label="Bientôt disponible"><span class="store"><small>Bientôt sur</small><b>l'App Store</b></span><span class="store"><small>Bientôt sur</small><b>Google Play</b></span></div>
         </div>
         <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : écran d'accueil, prochaine rando Dinard → Plurien dans 3 jours, 4 jours et 96,8 km, avec la liste des choses à préparer."><img src="img/accueil.jpg" alt="" width="620" height="1342"></div>
       </div>
@@ -328,6 +350,7 @@ footer p { color: var(--muted); font-size: 15px; }
           <ul class="points">
             <li><div><strong>Chaque étape finit là où tu peux dormir.</strong> <span>Gîte, camping, chambre d'hôte ou hôtel : l'étape s'arrête dans un village où passer la nuit.</span></div></li>
             <li><div><strong>Ton rythme, dans le sens que tu veux.</strong> <span>Par durée ou entre deux villages. Tu vois la distance de chaque jour avant de partir.</span></div></li>
+            <li><div><strong>Où dormir, étape par étape.</strong> <span>Campings, gîtes, hôtels et coins de bivouac près de chaque arrivée, avec l'avis des randonneurs.</span></div></li>
             <li><div><strong>Ton sac, sans rien oublier.</strong> <span>Météo, nuits en gîte ou en bivouac, repas, niveau : ta liste de matériel se construit pour cette rando-là.</span></div></li>
           </ul>
         </div>
@@ -419,11 +442,70 @@ footer p { color: var(--muted); font-size: 15px; }
             <li><div><strong>Tes proches te suivent en direct.</strong> <span>Envoie-leur un lien : ils voient où tu en es, sans installer l'appli.</span></div></li>
             <li><div><strong>Publie ta rando.</strong> <span>Tes photos et ton parcours dans le fil HIKE, pour tes amis ou pour tous les randonneurs.</span></div></li>
             <li><div><strong>Fais profiter les autres de tes bons spots.</strong> <span>Coins de bivouac, points de vue, sources : les randonneurs les ajoutent sur la carte, au fil de leurs randos.</span></div></li>
-            <li><div><strong>Chaque kilomètre compte.</strong> <span>Bronze à 10 km, puis Argent, Or et Platine. Et des badges : premier bivouac, Grimpeur, Explorateur…</span></div></li>
+            <li><div><strong>Ton bilan, prêt pour Instagram.</strong> <span>À l'arrivée : tes km, ton dénivelé, tes points, et une story avec ton tracé, sur ta photo ou en sticker.</span></div></li>
+            <li><div><strong>Chaque kilomètre compte.</strong> <span>Des points pour chaque km, chaque rando et chaque coup de main à la communauté : Bronze, Argent, Or, Platine. Et des badges : premier bivouac, Grimpeur, Explorateur…</span></div></li>
           </ul>
         </div>
         <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : ma progression, 41 km parcourus, palier Bronze, et mon activité."><img src="img/profil.jpg" alt="" width="620" height="1342"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- Gratuit / Premium -->
+  <section class="leg" id="offres">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 15 250, 85 500, 50 700 S 15 900, 50 1000"/><path d="M50 0 C 15 250, 85 500, 50 700 S 15 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Le Yaudet</p>
+      <h2 class="h2">L'essentiel est gratuit. Pour toujours.</h2>
+      <p class="lead" style="margin-top:22px">Sans publicité. Premium ajoute l'organisation complète de ta rando, pour ceux qui partent plusieurs jours.</p>
+      <div class="offres">
+        <div class="offre">
+          <h3>Gratuit</h3>
+          <p class="prix">0 €, sans limite</p>
+          <ul>
+            <li><span>Itinéraires découpés en étapes, autant que tu veux</span></li>
+            <li><span>Carte IGN hors-ligne et GPS en rando</span></li>
+            <li><span>Checklist du sac, objets perso compris</span></li>
+            <li><span>Bouton SOS, signalements et points utiles</span></li>
+            <li><span>Liste des hébergements de chaque étape</span></li>
+            <li><span>Communauté, points, badges et statistiques</span></li>
+          </ul>
+        </div>
+        <div class="offre premium">
+          <h3>Premium</h3>
+          <p class="prix">3,99 € / mois, 1 semaine offerte<br>ou 24,99 € / an, 1 mois offert</p>
+          <ul>
+            <li><span><b>Hébergements par étape</b> : infos, avis des randonneurs, ton choix pour chaque soir</span></li>
+            <li><span><b>Carnet de route hors-ligne</b> : jour par jour, où manger, dormir, trouver de l'eau, quoi voir</span></li>
+            <li><span><b>Variantes selon les marées</b> pour les passages qui ne se font qu'à marée basse</span></li>
+            <li><span><b>Plan B</b> en cas de pépin sur le sentier</span></li>
+            <li><span><b>Étapes sur mesure</b> : change le village d'arrivée d'une étape</span></li>
+          </ul>
+          <p class="plus">Résiliable à tout moment depuis ton compte Apple ou Google.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aide -->
+  <section class="leg" id="aide">
+    <div class="rail" aria-hidden="true">
+      <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none"><path class="halo" d="M50 0 C 85 250, 15 500, 50 700 S 85 900, 50 1000"/><path d="M50 0 C 85 250, 15 500, 50 700 S 85 900, 50 1000"/></svg>
+      <span class="pin"></span>
+    </div>
+    <div class="leg-body">
+      <p class="place">Saint-Michel-en-Grève</p>
+      <h2 class="h2">Tes questions.</h2>
+      <div class="faq">
+        <details><summary>L'appli marche-t-elle sans réseau ?</summary><p>Oui, si tu prépares avant de partir : tu télécharges la carte de ton itinéraire, et le GPS de ton téléphone fonctionne sans réseau. Tes km sont envoyés dès que tu retrouves du réseau.</p></details>
+        <details><summary>Sur quels sentiers ?</summary><p>Le GR34, le sentier des douaniers en Bretagne, et les îles bretonnes au lancement. La Via Podiensis et le chemin de Stevenson suivront, puis les grands sentiers de montagne.</p></details>
+        <details><summary>À quoi sert le bouton SOS ?</summary><p>Il rassemble ce qu'il faut en cas de problème : appeler les secours (112), prévenir ton contact d'urgence, ta position GPS à donner ou à envoyer par SMS, les soins à proximité et un sifflet pour te faire repérer. HIKE n'appelle pas les secours à ta place.</p></details>
+        <details><summary>Est-ce que je dois payer ?</summary><p>Non. Itinéraires, carte hors-ligne, sac, SOS et communauté sont gratuits, sans limite et sans publicité. Premium est une option pour organiser ta rando dans le détail.</p></details>
+      </div>
+      <p style="margin-top:22px"><a class="small" href="/aide/" style="font-weight:800;color:var(--red-ink)">Toutes les questions →</a></p>
     </div>
   </section>
 
@@ -460,6 +542,7 @@ footer p { color: var(--muted); font-size: 15px; }
         <a class="cta" href="https://7d1bc99f.sibforms.com/serve/MUIFAJD4r1gDyaRbbMnj6oz1SfxVCs9GDAEmUDVJERjet1kcFFEZHpYWHpZUm-80yFwtGPNWpFM95r890IPPqEA63Y85XTw36V8vs_XE1Kfj1oX00S6r_ktlYKV-Z95MksxIvT3zz17zkj3wZ4oNDoz5PWMRFv2MxhAANRBblUpoWQrUJRKsvwzrchTSMNQIiwsiFfucnlWBd2cPAQ==" target="_blank" rel="noopener">Rejoindre la liste d'attente
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
         <p class="fineprint">Un email au lancement, puis à chaque nouveau sentier. Pas de spam.</p>
+        <div class="stores" aria-label="Bientôt disponible"><span class="store"><small>Bientôt sur</small><b>l'App Store</b></span><span class="store"><small>Bientôt sur</small><b>Google Play</b></span></div>
       </div>
     </div>
   </section>
@@ -469,7 +552,10 @@ footer p { color: var(--muted); font-size: 15px; }
   <div class="wrap">
     <span class="logo" aria-hidden="true">HIKE</span>
     <p>La rando qui s'adapte à toi.</p>
-    <p>Contact : <span class="mail">contact@hikeapp.fr</span></p>
+    <p>Contact : <a class="mail" href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+    <nav aria-label="Informations">
+      <a href="/aide/">Aide</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
+    </nav>
   </div>
 </footer>
 
