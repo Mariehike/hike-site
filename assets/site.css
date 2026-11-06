@@ -56,3 +56,6 @@ footer a:hover { text-decoration: underline; }
 footer p { width: 100%; color: var(--muted); margin: 6px 0 0; }
 .a-completer { background: #FFF1B8; color: #5A4500; border-radius: 4px; padding: 0 4px; }
 @media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+/* Bouton d'action des pages secondaires (espace pros, 06/11/2026) */
+.bouton { display: inline-block; padding: 14px 24px; border-radius: 999px; background: var(--red); color: var(--on-red); text-decoration: none; font: italic 900 17px/1 var(--font); letter-spacing: .02em; }
+.bouton:hover { filter: brightness(.95); }

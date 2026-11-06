@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Télécharger HIKE</title>
+<link rel="canonical" href="https://hikeapp.fr/">
+<script>
+// Adresse des QR codes du site et des affichettes (06/11/2026) : elle ne change jamais.
+// Au lancement, renseigner les deux liens des stores : l'iPhone ira sur l'App Store,
+// Android sur Google Play. Tant qu'ils sont vides, tout le monde va sur la liste d'attente.
+var APP_STORE = '';
+var GOOGLE_PLAY = '';
+var ua = navigator.userAgent || '';
+var cible = '/liste/';
+if (/iPhone|iPad|iPod/i.test(ua) && APP_STORE) cible = APP_STORE;
+else if (/Android/i.test(ua) && GOOGLE_PLAY) cible = GOOGLE_PLAY;
+else if (APP_STORE || GOOGLE_PLAY) cible = '/#arrivee';
+location.replace(cible);
+</script>
+<meta http-equiv="refresh" content="1; url=/liste/">
+</head>
+<body style="font-family:system-ui,sans-serif;padding:24px">
+<p>Redirection… <a href="/liste/">Continuer vers HIKE</a></p>
+</body>
+</html>
