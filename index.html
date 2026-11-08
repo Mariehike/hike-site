@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://hikeapp.fr/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HIKE, la rando qui s'adapte à toi : l'appli de randonnée itinérante, avec une photo de Ploumanac'h.">
+<meta property="og:image:alt" content="HIKE, la rando qui s'adapte à toi : l'appli de randonnée itinérante, avec une photo de la côte sauvage de Belle-Île.">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <title>HIKE · La rando qui s'adapte à toi</title>
@@ -30,6 +30,8 @@
 <body>
 <header class="entete">
   <div class="wrap entete-in">
+    <button class="tiroir-bouton" type="button" aria-controls="tiroir" aria-expanded="false" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
     <a class="logo" href="/" aria-label="HIKE, accueil">HIKE</a>
     <nav class="menu" aria-label="Menu principal">
       <a href="#prepare">L'appli</a><a href="#offres">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a>
@@ -53,16 +55,34 @@
   </div>
 </section>
 
-<!-- Onglets sur le côté (grands écrans) -->
-<nav class="onglets" aria-label="Sur cette page">
-  <a href="#depart">Départ</a>
-  <a href="#prepare">Prépare</a>
-  <a href="#vis">Vis</a>
-  <a href="#partage">Partage</a>
-  <a href="#offres">Gratuit &amp; Premium</a>
-  <a href="#pros">Pros</a>
-  <a href="#arrivee">Arrivée</a>
-</nav>
+<!-- Barre latérale (08/11/2026) : toutes les rubriques, s'ouvre depuis le bouton Menu -->
+<div class="tiroir-voile" hidden></div>
+<aside class="tiroir" id="tiroir" aria-label="Menu" aria-hidden="true">
+  <div class="tiroir-tete">
+    <span class="logo" aria-hidden="true">HIKE</span>
+    <button class="tiroir-fermer" type="button" aria-label="Fermer le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <p class="tiroir-titre">Sur cette page</p>
+  <nav class="onglets" aria-label="Sur cette page">
+    <a href="#depart">Départ</a>
+    <a href="#prepare">Préparer ta rando</a>
+    <a href="#vis">Sur le sentier</a>
+    <a href="#sos">Les secours</a>
+    <a href="#lieux">Les bons arrêts</a>
+    <a href="#partage">Partager ta rando</a>
+    <a href="#offres">Gratuit &amp; Premium</a>
+    <a href="#pros">Pour les pros</a>
+    <a href="#arrivee">Liste d'attente</a>
+  </nav>
+  <p class="tiroir-titre">Le site</p>
+  <nav class="tiroir-pages" aria-label="Pages du site">
+    <a href="/gr34/">Le GR34 étape par étape</a>
+    <a href="/aide/">Aide</a>
+    <a href="/pro/">Espace pros</a>
+    <a href="mailto:contact@hikeapp.fr">Nous écrire</a>
+  </nav>
+  <a class="cta tiroir-cta" href="https://7d1bc99f.sibforms.com/serve/MUIFAJD4r1gDyaRbbMnj6oz1SfxVCs9GDAEmUDVJERjet1kcFFEZHpYWHpZUm-80yFwtGPNWpFM95r890IPPqEA63Y85XTw36V8vs_XE1Kfj1oX00S6r_ktlYKV-Z95MksxIvT3zz17zkj3wZ4oNDoz5PWMRFv2MxhAANRBblUpoWQrUJRKsvwzrchTSMNQIiwsiFfucnlWBd2cPAQ==" target="_blank" rel="noopener">Rejoindre la liste d'attente</a>
+</aside>
 
 <!-- QR code flottant (grands écrans) -->
 <aside class="qr-flottant" aria-label="Télécharger HIKE">
@@ -81,14 +101,13 @@
     </div>
     <div class="leg-body">
       <p class="place">Départ · Le Mont-Saint-Michel</p>
-      <div class="pourquoi revele">
+      <div class="pourquoi sans-photo revele">
       <div class="note">
         <p class="surtitre">Pourquoi HIKE existe</p>
         <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
         <p>Deux ans à marcher le GR34 par étapes, et toujours les mêmes galères : où dormir ce soir, rien oublier dans le sac, une carte qui ne charge plus sans réseau. HIKE rassemble tout ce qui m'a manqué.</p>
         <p class="sign">Marie, fondatrice de HIKE</p>
       </div>
-      <figure class="photo paysage"><img src="img/photos/goelo.jpg" alt="Marie, fondatrice de HIKE, sur la côte du Goëlo" width="1024" height="768" loading="lazy" decoding="async"><figcaption>Côte du Goëlo, février 2025</figcaption></figure>
       </div>
       <div class="galerie revele" aria-label="Photos du sentier">
         <figure class="photo"><img src="img/photos/belle-ile-cote-sauvage.jpg" alt="Falaises et mer turquoise sur la côte sauvage de Belle-Île" width="768" height="1024" loading="lazy" decoding="async"><figcaption>Côte sauvage, Belle-Île</figcaption></figure>
@@ -98,7 +117,7 @@
       <div class="stops confiance revele" aria-label="HIKE en chiffres">
         <div class="stop"><p class="fig"><span class="compteur" data-fin="2094">2 094</span> km</p><h3>Tout le GR34</h3><p>Du Mont-Saint-Michel à Saint-Nazaire, et 14 îles bretonnes. <a class="lien-rouge" href="/gr34/">Voir les 99 étapes</a></p></div>
         <div class="stop"><p class="fig">Hors-ligne</p><h3>Carte IGN gratuite</h3><p>Téléchargée avant de partir, elle marche sans réseau. Pour toujours gratuite.</p></div>
-        <div class="stop"><p class="fig">0 pub</p><h3>Rien entre toi et le paysage</h3><p>Pas de bannière, pas de vidéo imposée. Et tes données ne sont jamais vendues.</p></div>
+        <div class="stop"><p class="fig">0 pub</p><p class="stop-phrase">HIKE, une application sans pub pour ne pas te gêner pendant ta rando.</p></div>
       </div>
     </div>
   </section>
@@ -132,14 +151,15 @@
       <div class="chapter"><span class="when">1 · Avant de partir</span><h2 class="h2">Prépare ta rando avec HIKE.</h2></div>
       <div class="feature revele">
         <div class="feature-text">
-          <p class="body">Choisis ton départ, ton nombre de jours et tes km par jour : HIKE découpe le sentier pour toi.</p>
-          <ul class="points">
-            <li><div><strong>Chaque soir, un endroit où dormir.</strong> <span>Gîte, camping, hôtel ou bivouac à l'arrivée de chaque étape.</span></div></li>
-            <li><div><strong>Le niveau de chaque jour.</strong> <span>Facile, moyen ou difficile, selon les km et le dénivelé.</span></div></li>
-            <li><div><strong>Ton sac, sans rien oublier.</strong> <span>Une liste faite pour cette rando : météo, nuits, enfants ou chien.</span></div></li>
+          <ul class="points courts">
+            <li><div><strong>Ton départ, ton rythme</strong></div></li>
+            <li><div><strong>Chaque soir, un lit</strong></div></li>
+            <li><div><strong>Le niveau de chaque étape</strong></div></li>
+            <li><div><strong>Eau, commerces, campings repérés</strong></div></li>
+            <li><div><strong>Ton sac sans rien oublier</strong></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : prochaine rando Dinard → Saint-Cast-le-Guildo, 3 jours et 49,4 km, avec ce qu'il reste à préparer avant de partir : itinéraire prêt, sac à dos 22 sur 38, carte hors-ligne à télécharger."><img src="img/accueil-2026-11.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : itinéraire Dinard → Saint-Cast-le-Guildo, 49 km en 3 jours, 16 km par jour, avec sur ton itinéraire 8 points d'eau, 46 toilettes, 36 commerces, 14 campings, 21 gîtes et hôtels."><img src="img/itineraire-dinard.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
       </div>
       <div class="simu revele" id="essaie">
         <div class="simu-tete">
@@ -175,17 +195,17 @@
       <div class="chapter"><span class="when">2 · Sur le sentier</span><h2 class="h2">Vis ta rando avec HIKE.</h2></div>
       <div class="feature revele">
         <div class="feature-text">
-          <p class="body">Pas de réseau sur la côte&nbsp;? Ta carte est téléchargée avant de partir, HIKE te guide quoi qu'il arrive.</p>
-          <ul class="points">
-            <li><div><strong>Ta position en direct</strong>, <span>même sans réseau.</span></div></li>
-            <li><div><strong>Le prochain village et le prochain point d'eau</strong>, <span>avec les km qui restent.</span></div></li>
-            <li><div><strong>Une alerte si tu sors du sentier</strong>, <span>quand le balisage se fait discret.</span></div></li>
-            <li><div><strong>Ton carnet de notes</strong>, <span>pour garder une adresse ou un souvenir.</span></div></li>
+          <ul class="points courts">
+            <li><div><strong>Ta carte, même sans réseau</strong></div></li>
+            <li><div><strong>Ta position en direct</strong></div></li>
+            <li><div><strong>Ton étape du jour</strong></div></li>
+            <li><div><strong>Le dernier point d'eau</strong></div></li>
+            <li><div><strong>Ton carnet de notes</strong></div></li>
           </ul>
         </div>
-        <div class="mobile-masque phone real" role="img" aria-label="Capture de l'appli HIKE : étape 3 sur 3, Saint-Jacut-de-la-Mer → Saint-Cast-le-Guildo, 12,7 km, avec la carte, les points d'eau et commerces sur le chemin et où dormir à l'arrivée."><img src="img/etape-2026-11.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="mobile-masque phone real" role="img" aria-label="Capture de l'appli HIKE : étape 1 sur 3, Dinard → Saint-Briac-sur-Mer, 18,9 km, 5 h de marche, avec sur le chemin 3 points d'eau, 28 commerces, 89 cafés et restos, et la dernière eau avant l'arrivée."><img src="img/etape-dinard.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
       </div>
-      <div class="feature revele" id="sos" style="margin-top:72px">
+      <div class="feature sos-bloc revele" id="sos">
         <div class="feature-text">
           <h3 class="h2">Les secours, toujours à portée de main.</h3>
           <p class="body">Pendant ta rando, le bouton SOS rouge reste à l'écran. Un appui, et tout est là&nbsp;:</p>
@@ -197,17 +217,23 @@
             <li><span class="mini-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 6H9z"/><path d="M9 9h6v11a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/><path d="M12 13v3"/></svg></span><div><strong>Te faire repérer</strong><span>La lampe clignote en SOS et le sifflet sonne, même en mode silencieux.</span></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : écran SOS avec les numéros d'urgence 112, 15, 18, 196, 17 et 114 par SMS."><img src="img/sos.jpg" alt="" width="620" height="1342"></div>
-      </div>
-      <div class="carnet revele">
-        <span class="mini-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M12 6.5v5M9.5 9h5"/></svg></span>
-        <div>
-          <h3>Le carnet des premiers secours</h3>
-          <p>Toujours dans l'appli, même sans réseau&nbsp;: les bons réflexes pour protéger, alerter et secourir, et quoi faire quand la situation tourne mal.</p>
-          <ul class="themes">
-            <li>Premiers secours</li><li>Marées</li><li>Orage</li><li>Falaises et vent</li><li>Chaleur</li><li>Froid et pluie</li><li>Piqûres et morsures</li><li>Perdu ou surpris par la nuit</li>
-          </ul>
+        <div class="duo mobile-masque">
+          <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : écran SOS avec les numéros d'urgence 112, 15, 18, 196, 17 et 114 par SMS."><img src="img/sos.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+          <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : ma position à donner aux secours (Dinard, coordonnées GPS, km 105 du GR34) à copier ou envoyer par SMS, et les soins à proximité."><img src="img/sos-position.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
         </div>
+      </div>
+      <div class="feature carnet-feature revele">
+        <div class="carnet">
+          <span class="mini-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M12 6.5v5M9.5 9h5"/></svg></span>
+          <div>
+            <h3>Le carnet des premiers secours</h3>
+            <p>Toujours dans l'appli, même sans réseau&nbsp;: les bons réflexes pour protéger, alerter et secourir, et quoi faire quand la situation tourne mal.</p>
+            <ul class="themes">
+              <li>Premiers secours</li><li>Marées</li><li>Orage</li><li>Falaises et vent</li><li>Chaleur</li><li>Froid et pluie</li><li>Piqûres et morsures</li><li>Perdu ou surpris par la nuit</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : Sécurité et secours, les conseils par thème : avant de partir, marées, orage, falaises et vent, chaleur et soleil, froid et pluie, premiers secours, piqûres et morsures, perdu ou surpris par la nuit."><img src="img/carnet-secours.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
       </div>
       <div class="feature lieux revele" id="lieux">
         <div class="feature-text">
@@ -224,7 +250,7 @@
           </ul>
           <p class="body petit">Et la communauté complète la carte&nbsp;: nouveaux lieux, avis et signalements (passage fermé, balisage effacé…).</p>
         </div>
-        <div class="mobile-masque phone real" role="img" aria-label="Capture de l'appli HIKE : itinéraire Dinard → Saint-Cast-le-Guildo, 49 km en 3 jours, avec sur ton itinéraire 8 points d'eau, 46 toilettes, 36 commerces, 14 campings, 21 gîtes et hôtels."><img src="img/lieux-2026-11.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="mobile-masque phone real" role="img" aria-label="Capture de l'appli HIKE : en rando, la fiche d'un restaurant au km 114 du GR34, à 60 m du sentier, avec ses horaires et son téléphone, et les boutons Toujours là et N'existe plus."><img src="img/lieu-restaurant.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>
@@ -247,7 +273,10 @@
             <li><div><strong>Des points et des badges</strong> <span>à chaque kilomètre, de Bronze à Platine.</span></div></li>
           </ul>
         </div>
-        <div class="mobile-masque phone real" role="img" aria-label="Capture de l'appli HIKE : ma progression, 41 km parcourus, palier Bronze, et mon activité."><img src="img/profil.jpg" alt="" width="620" height="1342"></div>
+        <div class="duo mobile-masque">
+          <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : avant de partir, prévenir un proche, heure d'arrivée prévue et partager ma position en direct."><img src="img/suivi-direct.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+          <div class="phone real" role="img" aria-label="Capture de l'appli HIKE : ma progression, 454 points, palier Argent, et mon activité."><img src="img/points-badges.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -348,22 +377,40 @@
 </div>
 
 <script>
-// Onglets et QR code : visibles après l'intro ; l'onglet de la section en cours est en rouge (06/11/2026).
+// Barre latérale, QR code flottant et rubrique en cours (08/11/2026).
 (function () {
-  var onglets = document.querySelector('.onglets');
+  var bouton = document.querySelector('.tiroir-bouton');
+  var tiroir = document.getElementById('tiroir');
+  var voile = document.querySelector('.tiroir-voile');
+  var fermer = document.querySelector('.tiroir-fermer');
+  function ouvrir(oui) {
+    tiroir.classList.toggle('ouvert', oui);
+    tiroir.setAttribute('aria-hidden', oui ? 'false' : 'true');
+    bouton.setAttribute('aria-expanded', oui ? 'true' : 'false');
+    voile.hidden = !oui;
+    document.body.classList.toggle('tiroir-ouvert', oui);
+    if (oui) fermer.focus(); else bouton.focus({ preventScroll: true });
+  }
+  if (bouton && tiroir) {
+    bouton.addEventListener('click', function () { ouvrir(true); });
+    fermer.addEventListener('click', function () { ouvrir(false); });
+    voile.addEventListener('click', function () { ouvrir(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && tiroir.classList.contains('ouvert')) ouvrir(false); });
+    tiroir.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { if (a.getAttribute('href').charAt(0) === '#') ouvrir(false); }); });
+  }
+
   var qr = document.querySelector('.qr-flottant');
   var intro = document.querySelector('.intro');
-  if (!onglets || !intro || !('IntersectionObserver' in window)) return;
   function bascule() {
-    var visible = window.scrollY > intro.offsetHeight * 0.6;
-    onglets.classList.toggle('visible', visible);
-    if (qr) qr.classList.toggle('visible', visible);
+    if (qr && intro) qr.classList.toggle('visible', window.scrollY > intro.offsetHeight * 0.6);
     document.body.classList.toggle('defile', window.scrollY > 8);
   }
   window.addEventListener('scroll', bascule, { passive: true });
   bascule();
+
+  if (!('IntersectionObserver' in window)) return;
   var liens = {};
-  onglets.querySelectorAll('a').forEach(function (a) { liens[a.getAttribute('href').slice(1)] = a; });
+  document.querySelectorAll('.onglets a').forEach(function (a) { liens[a.getAttribute('href').slice(1)] = a; });
   var observateur = new IntersectionObserver(function (entrees) {
     entrees.forEach(function (en) {
       if (!en.isIntersecting) return;
