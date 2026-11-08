@@ -1,0 +1,11 @@
+/* Archivo, hébergée sur le site (08/11/2026) : plus d'appel à Google Fonts.
+   Licence SIL Open Font License, voir fonts/OFL.txt. Sous-ensemble latin (français). */
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-regular.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-semibold.woff") format("woff"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-bold.woff") format("woff"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-extrabold.woff") format("woff"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-black.woff") format("woff"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-italic.woff") format("woff"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-bolditalic.woff") format("woff"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-extrabolditalic.woff") format("woff"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/archivo-blackitalic.woff") format("woff"); font-weight: 900; font-style: italic; font-display: swap; }

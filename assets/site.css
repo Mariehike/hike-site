@@ -59,3 +59,61 @@ footer p { width: 100%; color: var(--muted); margin: 6px 0 0; }
 /* Bouton d'action des pages secondaires (espace pros, 06/11/2026) */
 .bouton { display: inline-block; padding: 14px 24px; border-radius: 999px; background: var(--red); color: var(--on-red); text-decoration: none; font: italic 900 17px/1 var(--font); letter-spacing: .02em; }
 .bouton:hover { filter: brightness(.95); }
+
+/* =====================================================================
+   Harmonisation avec l'accueil (audit du 07/11/2026) : même en-tête,
+   même pied de page, titres en 800 droit (italique 900 réservé au logo,
+   aux chiffres et aux boutons d'action).
+   ===================================================================== */
+.wrap-large { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.entete { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 96%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); box-shadow: 0 1px 0 var(--line); }
+.entete-in { display: flex; align-items: center; gap: 24px; min-height: 72px; }
+.entete .logo { width: 44px; height: 44px; border-radius: 12px; font-size: 13px; flex-shrink: 0; }
+.menu { display: none; gap: 28px; margin-left: auto; }
+.menu a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink); padding: 10px 0; }
+.menu a:hover, .menu a[aria-current="page"] { color: var(--red-ink); }
+.bouton-entete { margin-left: auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--red); color: #fff; text-decoration: none; font: italic 900 15px/1 var(--font); white-space: nowrap; }
+.bouton-entete:hover { filter: brightness(.94); }
+@media (min-width: 900px) { .menu { display: flex; } .bouton-entete { margin-left: 8px; } }
+main { padding-block: 32px 80px; }
+h1 { font: 800 clamp(32px, 5vw, 48px)/1.08 var(--font); letter-spacing: -.025em; }
+.cta, .bouton { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--red); color: #fff; text-decoration: none; font: italic 900 17px/1 var(--font); }
+.pied { background: #232327; color: #E9E4E2; }
+.pied-in { display: grid; gap: 28px; padding-block: 44px 52px; }
+.pied-marque { display: grid; gap: 10px; justify-items: start; }
+.pied p { color: #B9B3B1; font-size: 15px; margin: 0; width: auto; }
+.pied a { color: #F3EEEC; text-decoration: none; font-weight: 600; font-size: 15px; }
+.pied a:hover { text-decoration: underline; }
+.pied nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+@media (min-width: 900px) { .pied-in { grid-template-columns: auto 1fr; align-items: start; } .pied nav { justify-content: flex-end; } }
+
+/* Le GR34 étape par étape (08/11/2026) */
+.fil { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+.fil a { color: var(--muted); font-weight: 600; text-decoration: none; }
+.fil a:hover { color: var(--red-ink); }
+.surtitre { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); margin: 0 0 6px; }
+.fiche { list-style: none; padding: 0; margin: 24px 0 8px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 640px) { .fiche { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.fiche li { margin: 0; background: var(--card); border-radius: 16px; padding: 14px 16px; box-shadow: 0 14px 30px -26px var(--shadow); display: grid; gap: 2px; }
+.fiche b { font: italic 900 22px/1.1 var(--font); color: var(--red-ink); }
+.fiche span { font-size: 13px; color: var(--muted); }
+.chiffres { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+@media (min-width: 640px) { .chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.chiffres li { margin: 0; padding: 10px 14px; border-radius: 12px; background: var(--card); }
+.chiffres b { font-weight: 800; color: var(--ink); margin-right: 4px; }
+.appel { margin-top: 36px; }
+.appel h2 { margin-top: 4px; }
+.etapes-nav { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin: 28px 0 18px; }
+.etapes-nav a { display: grid; gap: 2px; padding: 12px 14px; border-radius: 14px; border: 2px solid var(--line); text-decoration: none; color: var(--ink); font-weight: 700; font-size: 15px; }
+.etapes-nav a:hover { border-color: var(--ink); }
+.etapes-nav .suiv { text-align: right; }
+.etapes-nav small { font-size: 12px; font-weight: 600; color: var(--muted); }
+.source { font-size: 13px; }
+.liste-etapes { list-style: none; padding: 0; display: grid; gap: 6px; }
+.liste-etapes li { margin: 0; }
+.liste-etapes a { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; align-items: center; padding: 10px 14px; border-radius: 14px; background: var(--card); text-decoration: none; color: var(--ink); box-shadow: 0 14px 30px -28px var(--shadow); }
+.liste-etapes a:hover .nom { color: var(--red-ink); }
+.liste-etapes .num { grid-row: span 2; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 800; font-size: 13px; }
+.liste-etapes .nom { font-weight: 700; }
+.liste-etapes .det { font-size: 13px; color: var(--muted); }
+@media (min-width: 760px) { .liste-etapes a { grid-template-columns: 40px minmax(0, 1fr) auto; } .liste-etapes .num { grid-row: auto; } }
