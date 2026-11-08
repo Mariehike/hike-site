@@ -117,3 +117,42 @@ h1 { font: 800 clamp(32px, 5vw, 48px)/1.08 var(--font); letter-spacing: -.025em;
 .liste-etapes .nom { font-weight: 700; }
 .liste-etapes .det { font-size: 13px; color: var(--muted); }
 @media (min-width: 760px) { .liste-etapes a { grid-template-columns: 40px minmax(0, 1fr) auto; } .liste-etapes .num { grid-row: auto; } }
+
+/* Page /gr34/ : incontournables et îles (08/11/2026) */
+.gr-chiffres { list-style: none; padding: 0; margin: 22px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 700px) { .gr-chiffres { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.gr-chiffres li { display: grid; gap: 2px; padding: 14px 16px; border-radius: 16px; background: var(--card); box-shadow: 0 14px 30px -28px var(--shadow); }
+.gr-chiffres b { font: italic 900 24px/1.1 var(--font); color: var(--red-ink); }
+.gr-chiffres span { font-size: 14px; color: var(--muted); }
+.gr-large { margin-inline: calc(50% - min(560px, 50vw - 16px)); margin-top: 56px; }
+.gr-large > h2, .gr-large > .lead, .gr-large > .muted { max-width: 820px; }
+.gr-dep { margin: 34px 0 14px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); }
+.gr-grille { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.gr-carte { display: grid; align-content: start; border-radius: 20px; overflow: hidden; background: var(--card); box-shadow: 0 20px 40px -32px var(--shadow); margin: 0; }
+.gr-visuel { position: relative; aspect-ratio: 4 / 5; background: var(--line); }
+.gr-visuel img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.gr-km { position: absolute; left: 12px; bottom: 12px; padding: 5px 10px; border-radius: 999px; background: rgba(20,20,22,.72); color: #fff; font: italic 900 13px/1 var(--font); }
+.gr-texte { display: grid; gap: 4px; padding: 14px 16px 18px; }
+.gr-texte h4 { margin: 0; font: 800 18px/1.2 var(--font); }
+.gr-texte p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.45; }
+.gr-texte .gr-ou { font-size: 13px; font-weight: 700; color: var(--red-ink); }
+/* sans photo : un aplat mer, le nom en grand */
+.gr-carte-texte .gr-visuel { aspect-ratio: 16 / 9; background: linear-gradient(160deg, #1F5F7A 0%, #2E8BA6 55%, #9FD0DD 100%); display: grid; place-items: center; padding: 16px; }
+.sans-photo { color: #fff; font: italic 900 clamp(20px, 2.4vw, 26px)/1.1 var(--font); text-align: center; letter-spacing: -.01em; }
+.gr-maree .gr-visuel { background: linear-gradient(160deg, #6E5A3A 0%, #B89A67 55%, #E9DCC0 100%); }
+.gr-grille-iles { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+.gr-ile .gr-visuel { aspect-ratio: 4 / 3; }
+.gr-etapes { margin-top: 18px; }
+.gr-etapes > summary { cursor: pointer; display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid var(--ink); font-weight: 700; list-style: none; }
+.gr-etapes > summary::-webkit-details-marker { display: none; }
+.gr-etapes[open] > summary { background: var(--ink); color: var(--paper); margin-bottom: 8px; }
+.gr-visuel, .gr-carte-texte .gr-visuel, .gr-ile .gr-visuel { aspect-ratio: 4 / 3; }
+@media (max-width: 599px) {
+  .gr-grille, .gr-grille-iles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gr-texte { padding: 10px 12px 14px; }
+  .gr-texte h4 { font-size: 15px; }
+  .gr-texte p { font-size: 13px; }
+  .gr-texte .gr-ou { font-size: 12px; }
+  .sans-photo { font-size: 16px; }
+  .gr-km { left: 8px; bottom: 8px; font-size: 11px; padding: 4px 8px; }
+}
