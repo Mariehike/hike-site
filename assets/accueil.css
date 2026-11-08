@@ -503,28 +503,21 @@ body.defile .entete { box-shadow: 0 1px 0 var(--line); }
 @media (min-width: 1100px) { .sos-bloc.feature .secours { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 900px) { .sos-bloc.feature { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); } }
 
-/* bouton Menu */
-.tiroir-bouton { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 10px; margin-left: -10px; border: 0; border-radius: 999px; background: transparent; color: var(--ink); font: 700 15px/1 var(--font); cursor: pointer; }
-.tiroir-bouton:hover { background: var(--card); }
-.tiroir-bouton svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
-@media (max-width: 420px) { .tiroir-bouton span { display: none; } }
-
-/* la barre latérale */
-.tiroir { position: fixed; top: 0; left: 0; bottom: 0; z-index: 60; width: min(340px, 86vw); padding: 18px 22px 28px; overflow-y: auto; background: var(--paper); box-shadow: 24px 0 48px -24px rgba(0,0,0,.35); display: flex; flex-direction: column; gap: 6px; transform: translateX(-104%); visibility: hidden; transition: transform .28s ease, visibility 0s linear .28s; }
-.tiroir.ouvert { transform: none; visibility: visible; transition: transform .28s ease; }
-.tiroir-voile { position: fixed; inset: 0; z-index: 55; background: rgba(20,20,22,.4); }
-.tiroir-voile[hidden] { display: none; }
-body.tiroir-ouvert { overflow: hidden; }
-.tiroir-tete { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.tiroir-tete .logo { width: 44px; height: 44px; border-radius: 12px; font-size: 13px; }
-.tiroir-fermer { width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--card); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
-.tiroir-fermer svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
-.tiroir-titre { margin: 14px 0 4px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); }
-.tiroir .onglets, .tiroir-pages { position: static !important; display: flex !important; flex-direction: column; gap: 2px; opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
-.tiroir .onglets a, .tiroir-pages a { display: block; padding: 11px 12px; border-radius: 12px; background: none !important; box-shadow: none !important; text-align: left !important; text-decoration: none; color: var(--ink) !important; font-size: 17px !important; font-weight: 600 !important; }
-.tiroir .onglets a:hover, .tiroir-pages a:hover { background: var(--card) !important; }
-.tiroir .onglets a.actif { background: var(--card) !important; color: var(--red-ink) !important; box-shadow: inset 4px 0 0 var(--red) !important; }
-.tiroir-cta { margin-top: 18px; justify-content: center; font-size: 16px; min-height: 52px; }
-@media (prefers-reduced-motion: reduce) { .tiroir, .tiroir.ouvert { transition: none; } }
+/* bouton Menu et barre latérale : voir menu.css */
 @media (min-width: 1100px) { .sos-bloc.feature .secours { grid-template-columns: minmax(0, 1fr); } }
 .sos-bloc.feature .secours li { padding: 14px 16px; }
+
+/* Accueil court (08/11, 21 h 30) : chaque rubrique renvoie à sa page */
+.en-savoir { margin-top: 28px; }
+.bouton-plus { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid var(--ink); color: var(--ink); text-decoration: none; font-weight: 700; font-size: 16px; }
+.bouton-plus svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+.bouton-plus:hover { background: var(--ink); color: var(--paper); }
+.bouton-plus:hover svg { transform: translateX(3px); }
+.sos-bloc + .en-savoir, .feature + .en-savoir { margin-top: 28px; }
+.prix-resume { display: grid; gap: 12px; margin-top: 26px; max-width: 760px; }
+@media (min-width: 700px) { .prix-resume { grid-template-columns: 1fr 1fr; } }
+.prix-resume > div { display: grid; gap: 4px; padding: 20px 22px; border-radius: 20px; background: var(--card); box-shadow: 0 20px 40px -30px var(--shadow); }
+.prix-resume b { font: 800 22px/1.1 var(--font); }
+.prix-resume span { color: var(--muted); font-size: 15px; }
+.prix-resume .premium { background: var(--red); color: #fff; }
+.prix-resume .premium span { color: rgba(255,255,255,.88); }

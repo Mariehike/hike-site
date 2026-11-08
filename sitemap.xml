@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hikeapp.fr/</loc></url>
+  <url><loc>https://hikeapp.fr/preparer/</loc></url>
+  <url><loc>https://hikeapp.fr/sur-le-sentier/</loc></url>
+  <url><loc>https://hikeapp.fr/secours/</loc></url>
+  <url><loc>https://hikeapp.fr/bons-arrets/</loc></url>
+  <url><loc>https://hikeapp.fr/partager/</loc></url>
+  <url><loc>https://hikeapp.fr/tarifs/</loc></url>
   <url><loc>https://hikeapp.fr/gr34/</loc></url>
   <url><loc>https://hikeapp.fr/aide/</loc></url>
   <url><loc>https://hikeapp.fr/pro/</loc></url>

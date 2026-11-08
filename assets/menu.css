@@ -1,0 +1,23 @@
+/* Bouton Menu et barre latérale, communs à toutes les pages (08/11/2026) */
+.tiroir-bouton { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 10px; margin-left: -10px; border: 0; border-radius: 999px; background: transparent; color: var(--ink); font: 700 15px/1 var(--font); cursor: pointer; flex-shrink: 0; }
+.tiroir-bouton:hover { background: var(--card); }
+.tiroir-bouton svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+.entete-in { gap: 14px !important; }
+@media (max-width: 420px) { .tiroir-bouton span { display: none; } }
+
+.tiroir { position: fixed; top: 0; left: 0; bottom: 0; z-index: 60; width: min(340px, 86vw); padding: 18px 22px 28px; overflow-y: auto; background: var(--paper); color: var(--ink); box-shadow: 24px 0 48px -24px rgba(0,0,0,.35); display: flex; flex-direction: column; gap: 4px; transform: translateX(-104%); visibility: hidden; transition: transform .28s ease, visibility 0s linear .28s; }
+.tiroir.ouvert { transform: none; visibility: visible; transition: transform .28s ease; }
+.tiroir-voile { position: fixed; inset: 0; z-index: 55; background: rgba(20,20,22,.4); }
+.tiroir-voile[hidden] { display: none; }
+body.tiroir-ouvert { overflow: hidden; }
+.tiroir-tete { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.tiroir-tete .logo { width: 44px; height: 44px; border-radius: 12px; font-size: 13px; }
+.tiroir-fermer { width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--card); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.tiroir-fermer svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+.tiroir-titre { margin: 14px 0 4px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); }
+.tiroir-nav { display: flex; flex-direction: column; gap: 2px; }
+.tiroir-nav a { display: block; padding: 11px 12px; border-radius: 12px; text-decoration: none; color: var(--ink); font-size: 17px; font-weight: 600; }
+.tiroir-nav a:hover { background: var(--card); }
+.tiroir-nav a[aria-current="page"] { background: var(--card); color: var(--red-ink); box-shadow: inset 4px 0 0 var(--red); }
+.tiroir-cta { margin-top: 18px; display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 999px; background: var(--red); color: #fff; text-decoration: none; font: italic 900 16px/1 var(--font); }
+@media (prefers-reduced-motion: reduce) { .tiroir, .tiroir.ouvert { transition: none; } }

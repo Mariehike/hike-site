@@ -1,0 +1,56 @@
+/* Pages par rubrique : /preparer/, /sur-le-sentier/, /secours/, /bons-arrets/, /partager/, /tarifs/ (08/11/2026).
+   S'appuie sur accueil.css (couleurs, téléphones, listes) et menu.css (en-tête et barre latérale). */
+
+.rubrique { padding-bottom: 24px; }
+.r-tete { display: grid; gap: 14px; justify-items: start; padding-block: 36px 40px; max-width: 46em; }
+.fil { font-size: 14px; color: var(--muted); }
+.fil a { color: inherit; }
+.r-tete h1 { font: 800 clamp(34px, 5.2vw, 60px)/1.05 var(--font); letter-spacing: -.03em; }
+.r-tete .lead { max-width: 36em; }
+
+.r-bloc { padding-block: 56px; border-top: 1px solid var(--line); }
+.r-bloc h2 { font: 800 clamp(26px, 3vw, 36px)/1.15 var(--font); letter-spacing: -.02em; }
+.r-bloc .feature-text { gap: 18px; }
+.r-bloc .feature.sans-visuel { grid-template-columns: minmax(0, 1fr); max-width: 46em; }
+@media (min-width: 900px) {
+  .r-bloc .feature.inverse { grid-template-columns: 340px minmax(0, 1fr); }
+  .r-bloc .feature.inverse > .feature-text { order: 2; }
+}
+.pastille-premium { justify-self: start; display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--red); color: #fff; font: italic 900 13px/1 var(--font); letter-spacing: .02em; }
+
+.encadre { display: grid; gap: 6px; padding: 18px 20px; border-radius: 18px; background: var(--card); box-shadow: 0 14px 30px -26px var(--shadow); }
+.encadre p { color: var(--muted); }
+.encadre p strong { color: var(--ink); }
+
+.numeros { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+@media (min-width: 760px) { .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.numeros li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; background: var(--card); }
+.numeros b { font: italic 900 26px/1 var(--font); color: var(--red-ink); }
+.numeros span { color: var(--muted); font-size: 15px; line-height: 1.4; }
+
+.themes.clair li { background: var(--card); color: var(--ink); }
+.familles.larges { margin-top: 6px; }
+@media (min-width: 900px) { .familles.larges { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.r-faq h2 { margin-bottom: 22px; }
+.r-faq .faq { margin-top: 0; }
+
+.r-suite { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-block: 40px 8px; border-top: 1px solid var(--line); }
+.r-suite a { display: grid; gap: 4px; padding: 18px 20px; border-radius: 18px; background: var(--card); text-decoration: none; font-weight: 700; font-size: 18px; box-shadow: 0 14px 30px -26px var(--shadow); }
+.r-suite a:hover { color: var(--red-ink); }
+.r-suite small { font-size: 13px; font-weight: 600; color: var(--muted); }
+.r-suite .suiv { text-align: right; }
+
+.r-appel { display: grid; justify-items: center; text-align: center; gap: 18px; padding-block: 64px 80px; }
+.r-appel h2 { font: 800 clamp(28px, 3.6vw, 44px)/1.1 var(--font); letter-spacing: -.025em; max-width: 16em; }
+.r-appel .lead { max-width: 32em; }
+
+.rubrique .simu { margin-top: 0; }
+.rubrique .offres { margin-top: 0; }
+.rubrique .offre h2 { font: 800 24px/1.1 var(--font); }
+
+@media (max-width: 759px) {
+  .r-bloc { padding-block: 40px; }
+  .r-tete { padding-block: 24px 28px; }
+  .r-suite a { font-size: 16px; padding: 14px 16px; }
+}
