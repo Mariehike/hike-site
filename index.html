@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://hikeapp.fr/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hikeapp.fr/">
-<meta property="og:title" content="HIKE · La rando qui s'adapte à toi">
+<meta property="og:title" content="HIKE · Le sentier, étape par étape">
 <meta property="og:description" content="Des étapes qui finissent là où tu peux dormir, une carte hors-ligne et les secours à portée de main. Sortie au printemps 2027.">
 <meta property="og:image" content="https://hikeapp.fr/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,10 +19,11 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="HIKE">
 <meta name="twitter:card" content="summary_large_image">
-<title>HIKE · La rando qui s'adapte à toi</title>
+<title>HIKE, l'appli de randonnée itinérante · Le sentier, étape par étape</title>
 <meta name="description" content="HIKE, l&#x27;appli de randonnée itinérante : des étapes qui finissent là où tu peux dormir, une carte hors-ligne et les secours à portée de main. Sortie au printemps 2027.">
 
 
+<link rel="preload" href="assets/fonts/archivo-extrabold.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/archivo-blackitalic.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/archivo-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/polices.css">
@@ -68,24 +69,36 @@
 </aside>
 <!-- /en-tête commun -->
 
-<!-- Intro : le grand HIKE (06/11/2026) -->
-<section class="intro" id="haut" aria-label="HIKE">
+<!-- Haut de page (13/11/2026) : signature, photo signature de Ploumanac'h et écran de l'appli, d'après la maquette validée le 11/11.
+     Au lancement : le bouton principal devient « Télécharger l'appli ». -->
+<section class="intro" id="haut" aria-labelledby="intro-titre">
   <div class="intro-scene">
-  <h1 class="intro-titre"><span class="intro-kicker">L'appli de randonnée itinérante</span>
-  <span class="intro-logo">HIKE</span></h1>
-  <p class="intro-tag">La rando qui s'adapte à toi.</p>
-  <p class="intro-promesse">Ta rando de plusieurs jours, découpée en étapes qui finissent là où tu peux dormir. Avec une carte hors-ligne et les secours à portée de main.</p>
-  <p class="fineprint">Gratuite, sans publicité. Sur iPhone et Android au printemps 2027.</p>
-  <a class="intro-suite" href="#depart"><span>Découvrir</span>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M5 12l7 7 7-7"/></svg></a>
+    <div class="intro-texte">
+      <p class="intro-kicker">L'appli de randonnée itinérante</p>
+      <h1 class="intro-titre" id="intro-titre">Le sentier,<br>étape par étape.</h1>
+      <p class="intro-promesse">Ta rando de plusieurs jours, découpée en étapes qui finissent là où tu peux dormir. Avec une carte hors-ligne et les secours à portée de main.</p>
+      <div class="intro-actions">
+        <a class="cta" href="/preparer/">Voir comment ça marche</a>
+        <a class="bouton-secondaire" href="/gr34/">Découvrir le GR34</a>
+      </div>
+      <p class="fineprint">Gratuite, sans publicité. Sur iPhone et Android au printemps 2027.</p>
+    </div>
+    <div class="intro-visuel">
+      <figure class="intro-photo">
+        <img src="img/photos/randonneur-ploumanach.jpg" alt="Randonneur de dos, sac sur le dos, entre les blocs de granit rose de Ploumanac'h" width="768" height="1024" fetchpriority="high" decoding="async">
+        <figcaption>Ploumanac'h, côte de Granit Rose</figcaption>
+      </figure>
+      <svg class="intro-trace" viewBox="0 0 520 600" preserveAspectRatio="none" aria-hidden="true"><path d="M318 330 C 270 300, 300 230, 250 190 S 190 130, 170 80"/><circle class="plein" cx="318" cy="330" r="9"/><circle cx="250" cy="190" r="9"/><circle cx="170" cy="80" r="9"/></svg>
+      <div class="intro-tel"><img src="img/itineraire-etapes.jpg" alt="Écran de HIKE : l'itinéraire Dinard → Saint-Cast-le-Guildo, 49,4 km en 3 jours, découpé en trois étapes avec l'hébergement de chaque soir." width="620" height="1342" decoding="async"></div>
+    </div>
   </div>
 </section>
 
 
 <!-- QR code flottant (grands écrans) -->
 <aside class="qr-flottant" aria-label="Télécharger HIKE">
-  <img src="img/qr-app.svg" alt="QR code pour s'inscrire depuis ton téléphone" width="112" height="112">
-  <p><strong>Inscris-toi depuis ton téléphone</strong></p>
+  <img src="img/qr-app.svg" alt="QR code pour ouvrir hikeapp.fr sur ton téléphone" width="112" height="112">
+  <p><strong>Retrouve HIKE sur ton téléphone</strong></p>
 </aside>
 
 <div class="contenu">
@@ -421,7 +434,10 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var scene = document.querySelector('.intro-scene');
   if (!scene) return;
+  var intro = document.querySelector('.intro');
   function reculer() {
+    // Seulement quand le haut de page reste fixe (grand écran) : sinon il défile normalement.
+    if (getComputedStyle(intro).position !== 'sticky') { scene.style.transform = ''; scene.style.opacity = ''; return; }
     var p = Math.min(1, Math.max(0, window.scrollY / window.innerHeight));
     scene.style.transform = 'scale(' + (1 - p * 0.08) + ')';
     scene.style.opacity = String(1 - p * 0.7);

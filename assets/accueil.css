@@ -280,18 +280,40 @@ body.defile .entete { box-shadow: 0 1px 0 var(--line); }
 .bouton-entete:hover { filter: brightness(.94); }
 @media (min-width: 900px) { .menu { display: flex; } .bouton-entete { margin-left: 8px; } }
 
-/* ---------- intro : le grand HIKE ---------- */
-.intro { position: sticky; top: 0; z-index: 0; }
-.intro-scene { min-height: calc(100vh - 72px); min-height: calc(100svh - 72px); display: grid; place-content: center; justify-items: center; text-align: center; gap: 14px; padding: 24px 16px 56px; }
+/* ---------- haut de page (13/11/2026) : signature, photo et écran de l'appli ---------- */
+.intro { position: relative; z-index: 0; }
+/* L'effet « le contenu glisse par-dessus » seulement quand tout le haut de page tient dans l'écran */
+@media (min-width: 960px) and (min-height: 760px) { .intro { position: sticky; top: 0; } }
+.intro-scene { max-width: 1320px; margin: 0 auto; min-height: calc(100vh - 72px); min-height: calc(100svh - 72px); display: grid; align-content: center; gap: 40px; padding: 24px max(20px, env(safe-area-inset-left, 0px)) 72px; }
 .intro-scene > * { will-change: transform, opacity; }
-.intro-titre { margin: 0; display: grid; justify-items: center; gap: 6px; }
-.intro-kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.intro-logo { font: italic 900 clamp(92px, 18vw, 220px)/.86 var(--font); letter-spacing: -.05em; color: var(--red); padding-right: .06em; }
-.intro-tag { font: 700 clamp(19px, 2.2vw, 24px)/1.2 var(--font); color: var(--ink); }
-.intro-promesse { margin: 2px auto 12px; max-width: 30em; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.5; color: var(--muted); }
-.intro-suite { margin-top: 20px; display: inline-flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; color: var(--muted); font-weight: 600; font-size: 14px; }
-.intro-suite svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; animation: descend 2s ease-in-out infinite; }
-@keyframes descend { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+.intro-texte { display: grid; gap: 20px; justify-items: start; }
+.intro-kicker { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red-ink); }
+.intro-titre { margin: 0; font: 800 clamp(44px, 6.2vw, 76px)/.98 var(--font); letter-spacing: -.03em; color: var(--ink); text-wrap: initial; }
+.intro-promesse { max-width: 32em; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.5; color: var(--muted); }
+.intro-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.intro-actions .bouton-secondaire { min-height: 58px; padding: 0 26px; }
+.intro-visuel { position: relative; width: min(100%, 520px); aspect-ratio: 520 / 600; justify-self: center; }
+.intro-photo { position: absolute; left: 0; top: 0; width: 84.6%; height: 96.7%; margin: 0; border-radius: 28px; overflow: hidden; background: var(--line); }
+.intro-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.intro-photo figcaption { position: absolute; right: 14px; top: 14px; padding: 6px 11px; border-radius: 999px; background: rgba(20, 20, 22, .7); color: #fff; font-size: 13px; font-weight: 600; line-height: 1.2; }
+.intro-trace { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.intro-trace path { fill: none; stroke: var(--red); stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.intro-trace circle { fill: var(--paper); stroke: var(--red); stroke-width: 5; vector-effect: non-scaling-stroke; }
+.intro-trace circle.plein { fill: var(--red); }
+.intro-tel { position: absolute; right: 0; bottom: 0; width: 41%; aspect-ratio: 620 / 1270; border-radius: 30px; border: 7px solid #1B1B1E; background: #1B1B1E; overflow: hidden; box-shadow: 0 24px 48px rgba(0, 0, 0, .28); }
+.intro-tel img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+@media (min-width: 960px) {
+  .intro-scene { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 56px; padding-inline: 48px; }
+}
+@media (max-width: 759px) {
+  .intro-scene { min-height: 0; gap: 32px; padding-bottom: 56px; }
+  .intro-actions { width: 100%; }
+  .intro-actions a { flex: 1 1 100%; }
+  .intro-visuel { width: min(100%, 420px); }
+  .intro-tel { border-width: 5px; border-radius: 24px; }
+  .intro-photo { border-radius: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { .intro-scene > * { will-change: auto; } }
 
 /* le contenu glisse par-dessus l'intro */
 .contenu { position: relative; z-index: 1; background: var(--paper); border-radius: 28px 28px 0 0; box-shadow: 0 -24px 48px -36px var(--shadow); padding-top: 56px; }
@@ -416,7 +438,7 @@ body.defile .entete { box-shadow: 0 1px 0 var(--line); }
   .intro { position: static; }
   .js .revele { opacity: 1; transform: none; transition: none; }
   .js .rail svg.path .trace { stroke-dashoffset: 0; }
-  .simu-etapes li, .intro-suite svg { animation: none; }
+  .simu-etapes li { animation: none; }
 }
 
 /* Téléphone : maquettes plus petites et sections plus serrées, pour une page moins longue */
