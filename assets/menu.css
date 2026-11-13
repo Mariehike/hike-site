@@ -19,6 +19,9 @@ body.tiroir-ouvert { overflow: hidden; }
 .tiroir-nav a { display: block; padding: 11px 12px; border-radius: 12px; text-decoration: none; color: var(--ink); font-size: 17px; font-weight: 600; }
 .tiroir-nav a:hover { background: var(--card); }
 .tiroir-nav a[aria-current="page"] { background: var(--card); color: var(--red-ink); box-shadow: inset 4px 0 0 var(--red); }
+/* 12/11/2026 : liste d'attente retirée, le bouton du menu latéral est devenu une
+   simple mention. Au lancement, remettre un bouton « Télécharger l'appli ». */
+.tiroir-sortie { margin-top: 18px; color: var(--muted, #6b6b6b); font: 600 14px/1.4 var(--font); }
 .tiroir-cta { margin-top: 18px; display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 999px; background: var(--red); color: #fff; text-decoration: none; font: italic 900 16px/1 var(--font); }
 @media (prefers-reduced-motion: reduce) { .tiroir, .tiroir.ouvert { transition: none; } }
 
