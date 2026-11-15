@@ -211,5 +211,19 @@
   vus.forEach(function (el) { obs.observe(el); });
 })();
 </script>
+<script>
+// Le haut de page reste en place et recule doucement pendant que le contenu monte par-dessus.
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var scene = document.querySelector('.haut-in');
+  if (!scene) return;
+  function reculer() {
+    var p = Math.min(1, Math.max(0, window.scrollY / window.innerHeight));
+    scene.style.transform = 'scale(' + (1 - p * 0.08) + ')';
+    scene.style.opacity = String(1 - p * 0.7);
+  }
+  window.addEventListener('scroll', function () { requestAnimationFrame(reculer); }, { passive: true });
+})();
+</script>
 </body>
 </html>

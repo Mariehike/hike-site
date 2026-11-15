@@ -3,23 +3,30 @@
    5 blocs : haut de page plein cadre · l'appli · nouveautés · offres · pied.
    ===================================================================== */
 
-/* ---------- 1. haut de page : le grand « HIKE » sur la photo, en couleur ---------- */
-.haut { position: relative; isolation: isolate; color: #fff; background: #6f93c4; overflow: hidden;
-  min-height: min(760px, 92svh); display: flex; align-items: flex-start; }
-.haut picture { position: absolute; inset: 0; z-index: -1; }
+/* ---------- 1. haut de page : le grand « HIKE » rouge, au centre, sur la photo éclaircie ---------- */
+.haut { position: sticky; top: 0; z-index: 0; isolation: isolate; color: var(--ink); background: var(--paper); overflow: hidden;
+  min-height: min(760px, 92svh); display: flex; align-items: center; }
+.haut picture { position: absolute; inset: 0; z-index: -1; opacity: .65; }
 .haut-photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; }
-.haut-in { width: 100%; display: grid; justify-items: center; text-align: center; gap: 18px; padding-top: 120px; padding-bottom: 64px; }
+.haut-in { width: 100%; display: grid; justify-items: center; text-align: center; gap: 18px; padding-top: 96px; padding-bottom: 56px; }
 .haut h1 { display: grid; justify-items: center; gap: 4px; }
-.haut .surtitre { color: #fff; text-shadow: 0 1px 10px rgba(10, 30, 60, .45); }
-.haut-logo { font: italic 900 clamp(110px, 22vw, 230px)/.84 var(--font); letter-spacing: -.05em; color: var(--red); padding-right: .06em;
-  text-shadow: 0 6px 40px rgba(255, 255, 255, .35); }
-.haut-tag { font: 800 clamp(21px, 2.6vw, 30px)/1.2 var(--font); color: #fff; text-shadow: 0 1px 14px rgba(10, 30, 60, .5); }
+.haut .surtitre { color: var(--red-ink); }
+.haut-logo { font: italic 900 clamp(110px, 22vw, 230px)/.84 var(--font); letter-spacing: -.05em; color: var(--red); padding-right: .06em; }
+.haut-tag { font: 800 clamp(21px, 2.6vw, 30px)/1.2 var(--font); color: var(--ink); }
 .haut-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
-.haut .bouton-secondaire { color: #fff; background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .85);
+.haut .bouton-secondaire { background: color-mix(in srgb, var(--paper) 70%, transparent); }
+.haut-mention { font-size: 14px; font-weight: 600; color: var(--ink); background: color-mix(in srgb, var(--paper) 72%, transparent); padding: 6px 14px; border-radius: 16px;
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.haut-mention { font-size: 14px; font-weight: 600; color: #fff; background: rgba(10, 30, 60, .42); padding: 6px 14px; border-radius: 16px;
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-@media (min-width: 760px) { .haut-in { padding-top: 116px; } .haut-photo { object-position: 50% 60%; } }
+@media (min-width: 760px) { .haut-photo { object-position: 50% 60%; } }
+/* L'en-tête posé sur la photo claire : texte foncé dès le haut de page. */
+.accueil .entete.sur-photo, .accueil .entete.sur-photo .tiroir-bouton { color: var(--ink); }
+.accueil .entete.sur-photo .marque-mot { color: var(--red-ink); }
+.accueil .entete.sur-photo .tiroir-bouton:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+
+/* Le contenu glisse par-dessus le haut de page (animation du 06/11/2026, remise le 15/11/2026). */
+.haut-in { will-change: transform, opacity; transform-origin: 50% 30%; }
+.accueil main { position: relative; z-index: 1; background: var(--paper); border-radius: 28px 28px 0 0; box-shadow: 0 -24px 48px -30px rgba(10, 30, 60, .45); }
+.accueil .pied { position: relative; z-index: 1; }
 
 /* ---------- 2. l'appli en trois cartes ---------- */
 .appli { padding: 72px 0 80px; }
@@ -56,4 +63,4 @@
 .prix-premium span { color: color-mix(in srgb, var(--paper) 80%, transparent); }
 .prix-premium .fig { color: var(--paper); }
 
-@media (prefers-reduced-motion: reduce) { .carte-appli { transition: none; } .carte-appli:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .haut { position: relative; } .carte-appli { transition: none; } .carte-appli:hover { transform: none; } }
