@@ -73,21 +73,20 @@
 <!-- Refonte « Grande photo » du 15/11/2026 : accueil en 5 blocs (haut de page, l'appli, nouveautés, offres, pied).
      Au lancement : le bouton principal devient « Télécharger l'appli ». -->
 <section class="haut" id="haut" aria-labelledby="haut-titre">
-  <img class="haut-photo" src="/img/photos/randonneur-ploumanach.jpg" alt="" width="768" height="1024" fetchpriority="high" decoding="async">
+  <picture>
+    <source media="(min-width: 760px)" srcset="/img/photos/accueil-plage-large.jpg" width="2400" height="1350">
+    <img class="haut-photo" src="/img/photos/accueil-plage.jpg" alt="" width="1200" height="1600" fetchpriority="high" decoding="async">
+  </picture>
   <div class="wrap haut-in">
-    <div class="haut-texte">
-      <p class="surtitre">L'appli du sentier côtier breton</p>
-      <h1 id="haut-titre">Le sentier,<br>étape par étape.</h1>
-      <p class="haut-promesse">Des étapes qui finissent là où tu peux dormir, une carte qui marche sans réseau et les secours à portée de main.</p>
-      <div class="haut-actions">
-        <a class="cta" href="/preparer/">Découvrir l'appli</a>
-        <a class="bouton-secondaire" href="/gr34/">Le GR34</a>
-      </div>
-      <p class="haut-mention">Gratuite, sans pub · iPhone et Android au printemps 2027</p>
+    <h1 id="haut-titre"><span class="surtitre">L'appli du sentier côtier breton</span>
+      <span class="haut-logo">HIKE</span></h1>
+    <p class="haut-tag">Le sentier, étape par étape.</p>
+    <div class="haut-actions">
+      <a class="cta" href="/preparer/">Découvrir l'appli</a>
+      <a class="bouton-secondaire" href="/gr34/">Le GR34</a>
     </div>
-    <div class="haut-tel tel"><img src="/img/itineraire-etapes.jpg" alt="Écran de HIKE : l'itinéraire Dinard → Saint-Cast-le-Guildo, 49,4 km en 3 jours, découpé en trois étapes avec l'hébergement de chaque soir." width="620" height="1342" decoding="async"></div>
+    <p class="haut-mention">Gratuite, sans pub · iPhone et Android au printemps 2027</p>
   </div>
-  <p class="haut-legende">Ploumanac'h, côte de Granit Rose</p>
 </section>
 
 <main>

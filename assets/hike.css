@@ -110,22 +110,30 @@ body.defile .entete.sur-photo { background: color-mix(in srgb, var(--paper) 94%,
 body.defile .entete.sur-photo .tiroir-bouton { color: var(--ink); }
 body.defile .entete.sur-photo .marque-mot { color: var(--red-ink); }
 
-/* ---------- haut de page des rubriques : photo sous un voile sombre ---------- */
+/* ---------- haut de page des rubriques : la photo en couleur ----------
+   Ordinateur : voile léger à gauche seulement, derrière le texte ; la droite de la photo reste nette.
+   Téléphone : la photo est une bande sans voile, le texte passe dessous sur le fond de la page. */
 .tete-photo {
   position: relative; color: #fff; isolation: isolate;
   background: #2a2426 var(--photo) center var(--cadrage, 62%) / cover no-repeat;
   min-height: 340px; display: flex; align-items: flex-end;
 }
-.tete-photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(20, 14, 14, .86) 0%, rgba(20, 14, 14, .6) 55%, rgba(20, 14, 14, .3) 100%); }
-.tete-photo-in { padding-top: 56px; padding-bottom: 56px; display: grid; gap: 14px; }
-.tete-photo .fil { font-size: 14px; color: #E9E2E0; }
+.tete-photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(20, 14, 14, .62) 0%, rgba(20, 14, 14, .4) 42%, rgba(20, 14, 14, 0) 72%); }
+.tete-photo-in { padding-top: 56px; padding-bottom: 56px; display: grid; gap: 14px; text-shadow: 0 1px 14px rgba(0, 0, 0, .35); }
+.tete-photo .fil { font-size: 14px; color: #F3EEEC; }
 .tete-photo .fil a { color: #fff; }
-.tete-photo .surtitre { color: #fff; opacity: .92; }
-/* Sur téléphone le texte occupe toute la largeur : voile plus uniforme pour rester lisible (AA). */
-@media (max-width: 759px) { .tete-photo::before { background: linear-gradient(180deg, rgba(20, 14, 14, .62) 0%, rgba(20, 14, 14, .72) 45%, rgba(20, 14, 14, .88) 100%); } }
+.tete-photo .surtitre { color: #fff; }
 .tete-photo h1 { font-size: clamp(36px, 5.6vw, 64px); max-width: 18ch; }
-.tete-photo .lead { color: #F1ECEA; max-width: 56ch; }
-@media (min-width: 760px) { .tete-photo { min-height: 440px; } .tete-photo-in { padding-bottom: 72px; } }
+.tete-photo .lead { color: #fff; max-width: 52ch; }
+@media (min-width: 760px) { .tete-photo { min-height: 460px; } .tete-photo-in { padding-bottom: 72px; } }
+@media (max-width: 759px) {
+  .tete-photo { display: block; min-height: 0; background: none; color: var(--ink); }
+  .tete-photo::before { position: static; display: block; height: 230px; background: var(--photo) center var(--cadrage, 62%) / cover no-repeat; }
+  .tete-photo-in { padding-top: 22px; padding-bottom: 8px; text-shadow: none; }
+  .tete-photo .fil, .tete-photo .fil a { color: var(--muted); }
+  .tete-photo .surtitre { color: var(--red-ink); }
+  .tete-photo .lead { color: var(--muted); }
+}
 
 /* ---------- bandeau sombre de mise en avant ---------- */
 .bandeau-sombre { background: var(--night); color: #fff; padding: 72px 0; }
