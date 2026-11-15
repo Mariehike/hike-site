@@ -20,8 +20,9 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/archivo-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-extrabold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/polices.css">
-<link rel="stylesheet" href="/assets/accueil.css">
+<link rel="stylesheet" href="/assets/hike.css">
 <link rel="stylesheet" href="/assets/menu.css">
 <link rel="stylesheet" href="/assets/rubriques.css">
 </head>
@@ -31,7 +32,7 @@
     <button class="tiroir-bouton" type="button" aria-controls="tiroir" aria-expanded="false" aria-label="Ouvrir le menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
     <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-    <nav class="menu" aria-label="Menu principal"><a href="/preparer/" aria-current="page">L&#x27;appli</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a></nav>
+    <nav class="menu" aria-label="Menu principal"><a href="/preparer/" aria-current="page">L&#x27;appli</a><a href="/gr34/">Le GR34</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a></nav>
   </div>
 </header>
 <div class="tiroir-voile" hidden></div>
@@ -45,6 +46,7 @@
     <a href="/">Accueil</a>
     <a href="/preparer/">Préparer ta rando</a>
     <a href="/sur-le-sentier/">Sur le sentier</a>
+    <a href="/courir-sur-le-sentier/">Courir sur le sentier</a>
     <a href="/secours/" aria-current="page">Les secours</a>
     <a href="/bons-arrets/">Les bons arrêts</a>
     <a href="/partager/">Partager ta rando</a>
@@ -61,13 +63,15 @@
   </nav>
   <p class="tiroir-sortie">Sur iPhone et Android au printemps 2027.</p>
 </aside>
-<main class="rubrique wrap">
-    <section class="r-tete">
+<section class="tete-photo" style="--photo:url(/img/gr34/belle-ile.jpg)">
+    <div class="wrap tete-photo-in">
       <p class="fil"><a href="/">Accueil</a> › Les secours</p>
       <p class="surtitre">Sécurité</p>
       <h1>Les secours, toujours à portée de main.</h1>
       <p class="lead">Une cheville tordue, un brouillard qui tombe, une marée qui monte plus vite que prévu : un appui sur le bouton SOS, même si tu ne sais pas où tu es.</p>
-    </section>
+    </div>
+  </section>
+  <main class="rubrique wrap">
     <section class="r-bloc">
       <div class="feature sos-bloc">
         <div class="feature-text">
@@ -82,8 +86,8 @@
           </ul>
         </div>
         <div class="duo">
-          <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : écran SOS avec les numéros d&#x27;urgence 112, 15, 18, 196, 17 et 114 par SMS."><img src="/img/sos.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
-          <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : ma position à donner aux secours, à copier ou envoyer par SMS, et les soins à proximité."><img src="/img/sos-position.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+          <div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : écran SOS avec les numéros d&#x27;urgence 112, 15, 18, 196, 17 et 114 par SMS."><img src="/img/sos.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+          <div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : ma position à donner aux secours, à copier ou envoyer par SMS, et les soins à proximité."><img src="/img/sos-position.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </section>
@@ -108,7 +112,7 @@
             <li><div><strong>Ton parcours par SMS,</strong> <span>en un appui.</span></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : avant de partir, météo du jour, prévenir un proche, arrivée prévue et partager ma position en direct."><img src="/img/suivi-direct.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : avant de partir, météo du jour, prévenir un proche, arrivée prévue et partager ma position en direct."><img src="/img/suivi-direct.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc">
@@ -119,7 +123,7 @@
           <ul class="themes clair"><li>Avant de partir</li><li>Marées</li><li>Orage</li><li>Falaises et vent</li><li>Chaleur et soleil</li><li>Froid et pluie</li><li>Premiers secours</li><li>Piqûres et morsures</li><li>Perdu ou surpris par la nuit</li></ul>
           <p class="body petit">Ces conseils sont des repères généraux. Ils ne remplacent pas une formation aux premiers secours, comme le PSC1 (environ 7 heures, avec la Croix-Rouge, la Protection civile ou les pompiers).</p>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : Sécurité et secours, les conseils par thème."><img src="/img/carnet-secours.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : Sécurité et secours, les conseils par thème."><img src="/img/carnet-secours.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc r-faq">
@@ -130,22 +134,33 @@
       <details><summary>Mon contact d&#x27;urgence est-il envoyé à HIKE ?</summary><p>Non : il reste uniquement sur ton téléphone.</p></details>
       </div>
     </section>
-    <nav class="r-suite" aria-label="Rubrique précédente et suivante"><a class="prec" href="/sur-le-sentier/"><small>Précédent</small>Sur le sentier</a><a class="suiv" href="/bons-arrets/"><small>Suivant</small>Les bons arrêts</a></nav>
-    <section class="r-appel">
-      <h2>HIKE sort au printemps 2027.</h2>
-      <p class="lead">Gratuite et sans publicité, sur iPhone et Android, à partir du GR34 et des îles bretonnes.</p>
-    </section>
+    <nav class="r-suite" aria-label="Rubrique précédente et suivante"><a class="prec" href="/courir-sur-le-sentier/"><small>Précédent</small>Courir sur le sentier</a><a class="suiv" href="/bons-arrets/"><small>Suivant</small>Les bons arrêts</a></nav>
   </main>
 <footer class="pied">
-  <div class="wrap pied-in">
-    <div class="pied-marque">
-      <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-      <p>La rando qui s'adapte à toi.</p>
-      <p><a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+  <div class="wrap">
+    <div class="pied-haut">
+      <div class="qr">
+        <img src="/img/qr-app.svg" alt="QR code pour ouvrir hikeapp.fr sur ton téléphone" width="112" height="112" loading="lazy">
+        <div>
+          <p class="pied-titre">HIKE sort au printemps 2027.</p>
+          <p>Gratuite et sans pub, sur iPhone et Android. Scanne le code pour retrouver HIKE sur ton téléphone.</p>
+        </div>
+      </div>
+      <figure class="pied-mot">
+        <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
+        <figcaption>Marie, fondatrice de HIKE</figcaption>
+      </figure>
     </div>
-    <nav aria-label="Informations">
-      <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
-    </nav>
+    <p class="pied-pros">Tu accueilles des randonneurs ? <a href="/pro/">Vérifie ta fiche dans HIKE, gratuitement</a></p>
+    <div class="pied-in">
+      <div class="pied-marque">
+        <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+        <p>La rando qui s'adapte à toi · <a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+      </div>
+      <nav aria-label="Informations">
+        <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
+      </nav>
+    </div>
   </div>
 </footer>
 <script src="/assets/menu.js"></script>

@@ -1,24 +1,31 @@
-/* Guide matériel (11/11/2026) : sommaire et fiches, en plus de rubriques.css. */
+/* Guide matériel, Randonner au féminin, Courir sur le sentier (refonte du 15/11/2026), en plus de hike.css et rubriques.css. */
 
-.g-sommaire { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-.g-sommaire a { display: grid; gap: 6px; align-content: start; height: 100%; padding: 20px 22px; border-radius: 18px; background: var(--card); text-decoration: none; color: var(--ink); box-shadow: 0 14px 30px -26px var(--shadow); }
-.g-sommaire a:hover strong { color: var(--red-ink); }
-.g-sommaire small { font: italic 900 13px/1 var(--font); color: var(--red-ink); letter-spacing: .02em; text-transform: uppercase; }
-.g-sommaire strong { font: 800 20px/1.2 var(--font); }
+.g-sommaire { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.g-sommaire a { display: grid; gap: 8px; align-content: start; height: 100%; padding: 24px 24px 26px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); text-decoration: none; color: var(--ink); transition: border-color .2s, transform .2s; }
+.g-sommaire a:hover { border-color: var(--red); transform: translateY(-2px); }
+.g-sommaire small { font-size: 12px; font-weight: 800; color: var(--red-ink); letter-spacing: .12em; text-transform: uppercase; }
+.g-sommaire strong { font-size: 21px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
 .g-sommaire span { color: var(--muted); font-size: 15px; line-height: 1.45; }
 
-.g-fiche { display: grid; gap: 16px; max-width: 46em; }
-.g-fiche h2 { margin-top: 18px; font: 800 clamp(22px, 2.4vw, 28px)/1.2 var(--font); }
+.g-fiche { display: grid; gap: 16px; max-width: 44em; }
+.g-fiche h2 { margin-top: 22px; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; }
 .g-fiche > h2:first-child { margin-top: 0; }
-.g-fiche p, .g-fiche li { font-size: 17px; line-height: 1.6; }
+.g-fiche p, .g-fiche li { font-size: 17px; line-height: 1.65; }
 .g-fiche ul, .g-fiche ol { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; }
 .g-fiche li::marker { color: var(--red-ink); font-weight: 800; }
 
-.g-tableau { overflow-x: auto; border-radius: 16px; background: var(--card); box-shadow: 0 14px 30px -26px var(--shadow); }
+.g-tableau { overflow-x: auto; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
 .g-tableau table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
 .g-tableau th, .g-tableau td { padding: 12px 14px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); }
 .g-tableau thead th { border-top: 0; background: var(--pale); font-weight: 800; }
 .g-tableau tbody th { font-weight: 700; }
 
-.g-conseil { display: grid; gap: 8px; margin-top: 10px; padding: 20px 22px; border-radius: 18px; background: var(--pale); border-left: 5px solid var(--red); }
-.g-conseil-titre { font: italic 900 14px/1 var(--font) !important; letter-spacing: .03em; text-transform: uppercase; color: var(--red-ink); }
+.g-conseil { display: grid; gap: 8px; margin-top: 10px; padding: 22px 24px; border-radius: 20px; background: var(--pale); border-left: 5px solid var(--red); }
+.g-conseil-titre { font-size: 12px !important; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); }
+
+/* L'appli, en fin de fiche */
+.appel-appli { display: grid; gap: 12px; justify-items: start; margin: 48px 0 16px; padding: 32px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--red); }
+.appel-appli h2 { font-size: clamp(24px, 2.8vw, 32px); }
+.appel-appli p:not(.surtitre) { color: var(--muted); max-width: 48em; }
+
+@media (prefers-reduced-motion: reduce) { .g-sommaire a { transition: none; } .g-sommaire a:hover { transform: none; } }

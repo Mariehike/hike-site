@@ -19,9 +19,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/archivo-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-extrabold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/polices.css">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/hike.css">
 <link rel="stylesheet" href="/assets/menu.css">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 <header class="entete">
@@ -29,7 +32,7 @@
     <button class="tiroir-bouton" type="button" aria-controls="tiroir" aria-expanded="false" aria-label="Ouvrir le menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
     <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-    <nav class="menu" aria-label="Menu principal"><a href="/preparer/">L&#x27;appli</a><a href="/tarifs/">Tarifs</a><a href="/aide/" aria-current="page">Aide</a><a href="/pro/">Pros</a></nav>
+    <nav class="menu" aria-label="Menu principal"><a href="/preparer/">L&#x27;appli</a><a href="/gr34/">Le GR34</a><a href="/tarifs/">Tarifs</a><a href="/aide/" aria-current="page">Aide</a><a href="/pro/">Pros</a></nav>
   </div>
 </header>
 <div class="tiroir-voile" hidden></div>
@@ -43,6 +46,7 @@
     <a href="/">Accueil</a>
     <a href="/preparer/">Préparer ta rando</a>
     <a href="/sur-le-sentier/">Sur le sentier</a>
+    <a href="/courir-sur-le-sentier/">Courir sur le sentier</a>
     <a href="/secours/">Les secours</a>
     <a href="/bons-arrets/">Les bons arrêts</a>
     <a href="/partager/">Partager ta rando</a>
@@ -59,6 +63,7 @@
   </nav>
   <p class="tiroir-sortie">Sur iPhone et Android au printemps 2027.</p>
 </aside>
+
 <main class="wrap">
 <h1>Aide</h1>
 <p class="lead">Les réponses aux questions les plus fréquentes sur HIKE. Elles sont aussi dans l'appli : Profil → Mon compte → Questions fréquentes.</p>
@@ -69,7 +74,7 @@
 <details><summary>Je n&#x27;ai pas reçu le code par e-mail</summary><p>Regarde dans tes courriers indésirables : l'e-mail vient de <a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a>. Sinon, attends quelques minutes puis appuie sur « Renvoyer un code ». Seul le dernier code reçu fonctionne.</p></details>
 <details><summary>J&#x27;ai oublié mon mot de passe</summary><p>Sur l'écran de connexion, appuie sur « Continuer avec l'e-mail », puis sur « Mot de passe oublié ? ». Tu reçois un code à 8 chiffres, puis tu choisis un nouveau mot de passe.</p></details>
 <details><summary>E-mail ou Google : est-ce que j&#x27;aurai deux comptes ?</summary><p>Non. Si ton compte Google utilise la même adresse que ton compte HIKE, tu retrouves le même compte, avec tes randos et tes points.</p></details>
-<details><summary>Comment supprimer mon compte et mes données ?</summary><p>Profil → Mon compte → « Supprimer mon compte ». Ton profil, tes itinéraires, tes sacs, tes randos et tes photos sont effacés immédiatement. Les lieux et signalements que tu as partagés restent visibles pour la communauté, sans ton pseudo ni photo. Avant, tu peux garder une copie avec « Exporter mes données ».</p></details>
+<details><summary>Comment supprimer mon compte et mes données ?</summary><p>Profil → Mon compte → « Supprimer mon compte ». Ton profil, tes itinéraires, tes sacs, tes activités et tes photos sont effacés immédiatement. Les lieux et signalements que tu as partagés restent visibles pour la communauté, sans ton pseudo ni photo. Avant, tu peux garder une copie avec « Exporter mes données ».</p></details>
 <h2>PRÉPARER MA RANDO</h2>
 <details><summary>Comment créer mon itinéraire ?</summary><p>Onglet Itinéraire : choisis le sentier, ton point de départ, la durée ou les km par jour, le sens de marche et où tu veux dormir (camping, bivouac, gîte…). HIKE découpe les étapes et te propose un village d'arrivée pour chaque soir.</p></details>
 <details><summary>Puis-je changer les étapes proposées ?</summary><p>Changer le lieu d'arrivée d'une étape fait partie de Premium. Pendant ta rando, tu peux toujours adapter ton itinéraire gratuitement (menu ⋯ du mode rando), par exemple si tu es fatigué.</p></details>
@@ -81,12 +86,12 @@
 <details><summary>L&#x27;appli vide-t-elle ma batterie ?</summary><p>Le GPS consomme de la batterie. Active « Économie de batterie » dans Mon compte : la position est un peu moins précise et mise à jour moins souvent. Pour plusieurs jours, emporte une batterie externe.</p></details>
 <details><summary>À quoi sert le bouton SOS ?</summary><p>Il rassemble ce qu'il faut en cas de problème : appeler les secours (112), prévenir ton contact d'urgence, ta position GPS à donner ou à envoyer par SMS, les soins à proximité et un sifflet pour te faire repérer. HIKE n'appelle pas les secours à ta place.</p></details>
 <details><summary>Que faire si j&#x27;ai un problème en rando ?</summary><p>Touche « Plan B » en mode rando et choisis ce qui se passe : blessure, plus d'eau ou de quoi manger, fatigue, météo qui tourne, plus d'hébergement, passage bloqué ou envie de rentrer. HIKE te propose des solutions depuis ta position, même sans réseau, et te guide jusqu'au lieu choisi. Blessure et ravitaillement sont gratuits, les autres situations font partie de Premium.</p></details>
-<details><summary>Comment connaître les marées ?</summary><p>HIKE affiche les marées officielles du SHOM pour le port le plus proche. Les passages que la mer recouvre sont signalés sur la carte, avec une alerte à l'approche en mode rando. Ils ont été repérés d'après OpenStreetMap : en passant, dis-nous si c'est juste (+1 pt). Fie-toi toujours au panneau sur place.</p></details>
+<details><summary>Comment connaître les marées ?</summary><p>HIKE affiche les marées officielles du SHOM pour le port le plus proche. Les passages que la mer recouvre sont signalés sur la carte, avec une alerte à l'approche en mode rando. Ils ont été repérés d'après OpenStreetMap : en passant, dis-nous si c'est juste (+1 pt). Avec Premium, la variante qui les contourne à marée haute s'affiche en pointillés bleus sur la carte. Fie-toi toujours au panneau sur place.</p></details>
 <h2>COMMUNAUTÉ</h2>
 <details><summary>Comment signaler un problème sur le sentier ?</summary><p>En rando, bouton « Signaler » : choisis le type (arbre tombé, passage inondé, balisage…), la gravité, et ajoute une photo si tu veux. Les randonneurs qui passent après toi sont prévenus et peuvent répondre « Toujours là » ou « Plus là ».</p></details>
 <details><summary>Comment ajouter un lieu (resto, point d&#x27;eau…) ?</summary><p>Bouton « Ajouter un lieu » sur l'Accueil ou en mode rando. Les autres randonneurs peuvent confirmer qu'il existe toujours et mettre ses infos à jour.</p></details>
 <details><summary>Où retrouver mes signalements et mes lieux ?</summary><p>Profil → Mon compte → « Mes contributions » : tous tes signalements et lieux, leur état et le nombre de randonneurs qui les ont confirmés. Un appui ouvre leur historique.</p></details>
-<details><summary>Qui voit mes randos ?</summary><p>Tu choisis dans Profil → Mon compte → « Qui voit mes randos ». Ta position en direct n'est partagée que si tu le lances toi-même, et elle s'efface à l'arrêt ou au bout de 24 h.</p></details>
+<details><summary>Qui voit mes activités ?</summary><p>Tu choisis dans Profil → Mon compte → « Qui voit mes activités ». Ta position en direct n'est partagée que si tu le lances toi-même, et elle s'efface à l'arrêt ou au bout de 24 h.</p></details>
 <h2>POINTS ET PREMIUM</h2>
 <details><summary>Comment gagner des points ?</summary><p>1 point par km, +10 par rando terminée (au moins 1 km), +5 par avis dans « Ton avis compte » (un par jour), +1 par lieu partagé ou info mise à jour, +1 par signalement confirmé par au moins 5 randonneurs. Paliers : Bronze 10, Argent 100, Or 500 et Platine 1 000 points.</p></details>
 <details><summary>Que comprend Premium ?</summary><p>Premium t'aide à organiser ta rando : cartes hors-ligne de tout ton itinéraire, hébergements par étape (infos, avis, choix du soir), carnet de route complet hors-ligne, variantes selon les marées et plan B en cas de problème. 29,95 € par an avec 7 jours d’essai, ou un pass rando de 7 jours à 5,95 €, payé une fois et sans renouvellement. Tout le reste de HIKE est gratuit, et ce qui est gratuit au lancement le reste.</p></details>
@@ -100,15 +105,30 @@
 </div>
 </main>
 <footer class="pied">
-  <div class="wrap-large pied-in">
-    <div class="pied-marque">
-      <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-      <p>La rando qui s'adapte à toi.</p>
-      <p><a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+  <div class="wrap-large">
+    <div class="pied-haut">
+      <div class="qr">
+        <img src="/img/qr-app.svg" alt="QR code pour ouvrir hikeapp.fr sur ton téléphone" width="112" height="112" loading="lazy">
+        <div>
+          <p class="pied-titre">HIKE sort au printemps 2027.</p>
+          <p>Gratuite et sans pub, sur iPhone et Android. Scanne le code pour retrouver HIKE sur ton téléphone.</p>
+        </div>
+      </div>
+      <figure class="pied-mot">
+        <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
+        <figcaption>Marie, fondatrice de HIKE</figcaption>
+      </figure>
     </div>
-    <nav aria-label="Informations">
-      <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
-    </nav>
+    <p class="pied-pros">Tu accueilles des randonneurs ? <a href="/pro/">Vérifie ta fiche dans HIKE, gratuitement</a></p>
+    <div class="pied-in">
+      <div class="pied-marque">
+        <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+        <p>La rando qui s'adapte à toi · <a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+      </div>
+      <nav aria-label="Informations">
+        <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
+      </nav>
+    </div>
   </div>
 </footer>
 <script src="/assets/menu.js"></script>

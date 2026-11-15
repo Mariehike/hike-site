@@ -20,8 +20,9 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/archivo-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-extrabold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/polices.css">
-<link rel="stylesheet" href="/assets/accueil.css">
+<link rel="stylesheet" href="/assets/hike.css">
 <link rel="stylesheet" href="/assets/menu.css">
 <link rel="stylesheet" href="/assets/rubriques.css">
 </head>
@@ -31,7 +32,7 @@
     <button class="tiroir-bouton" type="button" aria-controls="tiroir" aria-expanded="false" aria-label="Ouvrir le menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
     <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-    <nav class="menu" aria-label="Menu principal"><a href="/preparer/" aria-current="page">L&#x27;appli</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a></nav>
+    <nav class="menu" aria-label="Menu principal"><a href="/preparer/" aria-current="page">L&#x27;appli</a><a href="/gr34/">Le GR34</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a></nav>
   </div>
 </header>
 <div class="tiroir-voile" hidden></div>
@@ -45,6 +46,7 @@
     <a href="/">Accueil</a>
     <a href="/preparer/">Préparer ta rando</a>
     <a href="/sur-le-sentier/">Sur le sentier</a>
+    <a href="/courir-sur-le-sentier/">Courir sur le sentier</a>
     <a href="/secours/">Les secours</a>
     <a href="/bons-arrets/" aria-current="page">Les bons arrêts</a>
     <a href="/partager/">Partager ta rando</a>
@@ -61,13 +63,15 @@
   </nav>
   <p class="tiroir-sortie">Sur iPhone et Android au printemps 2027.</p>
 </aside>
-<main class="rubrique wrap">
-    <section class="r-tete">
+<section class="tete-photo" style="--photo:url(/img/gr34/chateau-du-taureau.jpg)">
+    <div class="wrap tete-photo-in">
       <p class="fil"><a href="/">Accueil</a> › Les bons arrêts</p>
       <p class="surtitre">Plus de 20 000 lieux</p>
       <h1>Tout ce qu'il te faut, le long du sentier.</h1>
       <p class="lead">Points d'eau, boulangeries, campings, pharmacies, gares : HIKE te montre où ils sont et à quelle distance du sentier.</p>
-    </section>
+    </div>
+  </section>
+  <main class="rubrique wrap">
     <section class="r-bloc">
       <div class="feature sans-visuel">
         <div class="feature-text">
@@ -89,7 +93,7 @@
             <li><div><strong>Mettre à jour les infos,</strong> <span>et voir l'historique des changements.</span></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : en rando, la fiche d&#x27;un restaurant au km 114 du GR34, à 60 m du sentier, avec horaires, téléphone et les boutons Toujours là et N&#x27;existe plus."><img src="/img/lieu-restaurant.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : en rando, la fiche d&#x27;un restaurant au km 114 du GR34, à 60 m du sentier, avec horaires, téléphone et les boutons Toujours là et N&#x27;existe plus."><img src="/img/lieu-restaurant.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc">
@@ -103,7 +107,7 @@
             <li><div><strong>Tous les lieux, près de toi ou ailleurs :</strong> <span>filtre comme tu veux.</span></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : ajouter un lieu, avec sa position, son type (point d&#x27;eau, restauration, dormir, point de vue, lieu à visiter, toilettes), son nom, un avis et le prix."><img src="/img/ajouter-lieu.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : ajouter un lieu, avec sa position, son type (point d&#x27;eau, restauration, dormir, point de vue, lieu à visiter, toilettes), son nom, un avis et le prix."><img src="/img/ajouter-lieu.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc">
@@ -124,21 +128,32 @@
       </div>
     </section>
     <nav class="r-suite" aria-label="Rubrique précédente et suivante"><a class="prec" href="/secours/"><small>Précédent</small>Les secours</a><a class="suiv" href="/partager/"><small>Suivant</small>Partager ta rando</a></nav>
-    <section class="r-appel">
-      <h2>HIKE sort au printemps 2027.</h2>
-      <p class="lead">Gratuite et sans publicité, sur iPhone et Android, à partir du GR34 et des îles bretonnes.</p>
-    </section>
   </main>
 <footer class="pied">
-  <div class="wrap pied-in">
-    <div class="pied-marque">
-      <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-      <p>La rando qui s'adapte à toi.</p>
-      <p><a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+  <div class="wrap">
+    <div class="pied-haut">
+      <div class="qr">
+        <img src="/img/qr-app.svg" alt="QR code pour ouvrir hikeapp.fr sur ton téléphone" width="112" height="112" loading="lazy">
+        <div>
+          <p class="pied-titre">HIKE sort au printemps 2027.</p>
+          <p>Gratuite et sans pub, sur iPhone et Android. Scanne le code pour retrouver HIKE sur ton téléphone.</p>
+        </div>
+      </div>
+      <figure class="pied-mot">
+        <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
+        <figcaption>Marie, fondatrice de HIKE</figcaption>
+      </figure>
     </div>
-    <nav aria-label="Informations">
-      <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
-    </nav>
+    <p class="pied-pros">Tu accueilles des randonneurs ? <a href="/pro/">Vérifie ta fiche dans HIKE, gratuitement</a></p>
+    <div class="pied-in">
+      <div class="pied-marque">
+        <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+        <p>La rando qui s'adapte à toi · <a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+      </div>
+      <nav aria-label="Informations">
+        <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
+      </nav>
+    </div>
   </div>
 </footer>
 <script src="/assets/menu.js"></script>

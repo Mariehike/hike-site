@@ -1,56 +1,133 @@
-/* Pages par rubrique : /preparer/, /sur-le-sentier/, /secours/, /bons-arrets/, /partager/, /tarifs/ (08/11/2026).
-   S'appuie sur accueil.css (couleurs, téléphones, listes) et menu.css (en-tête et barre latérale). */
+/* =====================================================================
+   Rubriques (Préparer, Sur le sentier, Secours, Bons arrêts, Partager, Tarifs)
+   et pages du guide — refonte « Grande photo » du 15/11/2026, sur le socle hike.css.
+   Le haut de page (bandeau photo) vient de .tete-photo dans hike.css.
+   ===================================================================== */
 
-.rubrique { padding-bottom: 24px; }
-.r-tete { display: grid; gap: 14px; justify-items: start; padding-block: 36px 40px; max-width: 46em; }
-.fil { font-size: 14px; color: var(--muted); }
-.fil a { color: inherit; }
-.r-tete h1 { font: 800 clamp(34px, 5.2vw, 60px)/1.05 var(--font); letter-spacing: -.03em; }
-.r-tete .lead { max-width: 36em; }
+.rubrique { padding-bottom: 40px; }
+.body { color: var(--muted); max-width: 40em; }
+.body a, .feature-text p a:not(.lien-fleche) { color: var(--red-ink); font-weight: 600; }
+.body.petit { font-size: 15px; }
 
-.r-bloc { padding-block: 56px; border-top: 1px solid var(--line); }
-.r-bloc h2 { font: 800 clamp(26px, 3vw, 36px)/1.15 var(--font); letter-spacing: -.02em; }
-.r-bloc .feature-text { gap: 18px; }
-.r-bloc .feature.sans-visuel { grid-template-columns: minmax(0, 1fr); max-width: 46em; }
+/* ---------- blocs texte + écran, en alternance ---------- */
+.r-bloc { padding-block: 64px; border-top: 1px solid var(--line); }
+.r-bloc:first-child { border-top: 0; }
+.r-bloc h2 { font-size: clamp(26px, 3.2vw, 38px); line-height: 1.1; }
+.feature { display: grid; gap: 32px; align-items: center; }
+.feature-text { display: grid; gap: 18px; min-width: 0; justify-items: start; }
+.feature-text > * { justify-self: stretch; }
+.feature-text > .etiquette { justify-self: start; }
+.feature-visuel { background: var(--pale); border-radius: 30px; padding: 36px 24px; display: flex; justify-content: center; gap: 18px; }
+.r-bloc:nth-of-type(3n+2) .feature-visuel { background: var(--sea); }
+.r-bloc:nth-of-type(3n) .feature-visuel { background: var(--sand); }
+.feature-visuel .tel { width: min(250px, 70vw); }
 @media (min-width: 900px) {
-  .r-bloc .feature.inverse { grid-template-columns: 340px minmax(0, 1fr); }
-  .r-bloc .feature.inverse > .feature-text { order: 2; }
+  .feature { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 64px; }
+  .feature.inverse { grid-template-columns: minmax(0, 440px) minmax(0, 1fr); }
+  .feature.inverse > .feature-text { order: 2; }
 }
-.pastille-premium { justify-self: start; display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--red); color: #fff; font: italic 900 13px/1 var(--font); letter-spacing: .02em; }
+.feature.sans-visuel { grid-template-columns: minmax(0, 1fr); max-width: 52em; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 32px; }
+.r-bloc:has(.sans-visuel) + .r-bloc:has(.sans-visuel) { border-top: 0; padding-top: 0; }
 
-.encadre { display: grid; gap: 6px; padding: 18px 20px; border-radius: 18px; background: var(--card); box-shadow: 0 14px 30px -26px var(--shadow); }
+/* Deux écrans côte à côte */
+.duo { display: flex; gap: 16px; justify-content: center; }
+.duo .tel { flex: 1 1 0; max-width: 220px; width: auto; }
+.duo .tel:last-child { margin-top: 48px; }
+@media (min-width: 900px) { .feature:has(.duo) { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); } }
+
+/* Masqué sur téléphone (deuxième écran) */
+@media (max-width: 759px) { .mobile-masque { display: none !important; } }
+
+/* ---------- listes ---------- */
+.points { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 14px; }
+.points li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: start; }
+.points li::before { content: ""; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; border: 3px solid var(--red); background: var(--paper); }
+.points strong { color: var(--ink); }
+.points span { color: var(--muted); }
+.points.courts strong { font-size: clamp(18px, 1.8vw, 21px); }
+
+.encadre { display: grid; gap: 6px; padding: 18px 20px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
 .encadre p { color: var(--muted); }
 .encadre p strong { color: var(--ink); }
 
+.mini-ico { width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--red) 12%, var(--paper)); }
+.mini-ico svg { width: 22px; height: 22px; fill: none; stroke: var(--red-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.secours { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 12px; }
+.secours li { display: flex; gap: 14px; align-items: flex-start; padding: 16px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+.secours strong { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; }
+.secours span { color: var(--muted); font-size: 15px; line-height: 1.4; }
+@media (min-width: 1100px) { .sos-bloc .secours { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 .numeros { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 @media (min-width: 760px) { .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.numeros li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; background: var(--card); }
+.numeros li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
 .numeros b { font: italic 900 26px/1 var(--font); color: var(--red-ink); }
 .numeros span { color: var(--muted); font-size: 15px; line-height: 1.4; }
 
-.themes.clair li { background: var(--card); color: var(--ink); }
-.familles.larges { margin-top: 6px; }
+.familles { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 10px; }
+@media (min-width: 760px) { .familles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 900px) { .familles.larges { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.familles li { padding: 14px 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--red); }
+.familles strong { display: block; font-size: 16px; color: var(--ink); }
+.familles span { color: var(--muted); font-size: 15px; line-height: 1.4; }
 
+.themes { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.themes li { padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; background: var(--card); border: 1px solid var(--line); }
+
+/* ---------- simulateur de découpage (Préparer) ---------- */
+.simu { padding: 28px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); display: grid; gap: 18px; }
+.simu-label { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); }
+.simu-titre { font-size: clamp(22px, 2.6vw, 30px); }
+.simu-reglages { display: grid; gap: 16px; }
+@media (min-width: 760px) { .simu-reglages { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.simu-reglages label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.simu-reglages output { color: var(--ink); font-weight: 800; margin-left: 4px; }
+.simu select { font: 600 16px var(--font); padding: 10px 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--paper); color: var(--ink); min-height: 48px; }
+.simu input[type=range] { accent-color: var(--red); width: 100%; min-height: 32px; }
+.simu-etapes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: etape; }
+.simu-etapes li { counter-increment: etape; display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 14px; background: var(--paper); animation: arrive .35s ease both; }
+.simu-etapes li::before { content: counter(etape); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-weight: 800; font-size: 13px; }
+.simu-etapes li:last-child::before { background: var(--red); color: #fff; }
+.simu-etapes b { font-weight: 700; }
+.simu-etapes small { display: block; color: var(--muted); font-size: 13px; }
+.simu-etapes .km { font: italic 900 16px/1 var(--font); color: var(--red-ink); white-space: nowrap; }
+.simu-total { font-weight: 700; }
+.simu-note { font-size: 14px; color: var(--muted); }
+@keyframes arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- tarifs ---------- */
+.offres { display: grid; gap: 18px; }
+@media (min-width: 820px) { .offres { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.offre { display: grid; gap: 16px; align-content: start; padding: 30px 28px 32px; border-radius: 28px; background: var(--card); border: 1px solid var(--line); }
+.offre h2 { font-size: 28px; }
+.offre .prix { font-weight: 700; color: var(--muted); }
+.offre.premium { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.offre.premium .prix, .offre.premium .plus { color: color-mix(in srgb, var(--paper) 80%, transparent); }
+.offre ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 11px; }
+.offre li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.offre li::before { content: ""; width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; border: 3px solid var(--red); }
+.offre .plus { font-size: 15px; }
+
+/* ---------- questions fréquentes ---------- */
 .r-faq h2 { margin-bottom: 22px; }
-.r-faq .faq { margin-top: 0; }
+.faq { display: grid; gap: 10px; max-width: 820px; }
+.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 0 22px; }
+.faq summary { list-style: none; cursor: pointer; padding: 20px 34px 20px 0; font-weight: 700; font-size: 17px; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 10px; height: 10px; margin-top: -7px; border-right: 3px solid var(--red); border-bottom: 3px solid var(--red); transform: rotate(45deg); transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+.faq details p { padding-bottom: 20px; color: var(--muted); max-width: 44em; }
 
+/* ---------- précédent / suivant ---------- */
 .r-suite { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-block: 40px 8px; border-top: 1px solid var(--line); }
-.r-suite a { display: grid; gap: 4px; padding: 18px 20px; border-radius: 18px; background: var(--card); text-decoration: none; font-weight: 700; font-size: 18px; box-shadow: 0 14px 30px -26px var(--shadow); }
-.r-suite a:hover { color: var(--red-ink); }
+.r-suite a { display: grid; gap: 4px; padding: 20px 22px; border-radius: 20px; background: var(--card); border: 1px solid var(--line); text-decoration: none; font-weight: 700; font-size: 18px; transition: border-color .2s; }
+.r-suite a:hover { color: var(--red-ink); border-color: var(--red); }
 .r-suite small { font-size: 13px; font-weight: 600; color: var(--muted); }
 .r-suite .suiv { text-align: right; }
 
-.r-appel { display: grid; justify-items: center; text-align: center; gap: 18px; padding-block: 64px 80px; }
-.r-appel h2 { font: 800 clamp(28px, 3.6vw, 44px)/1.1 var(--font); letter-spacing: -.025em; max-width: 16em; }
-.r-appel .lead { max-width: 32em; }
-
-.rubrique .simu { margin-top: 0; }
-.rubrique .offres { margin-top: 0; }
-.rubrique .offre h2 { font: 800 24px/1.1 var(--font); }
-
 @media (max-width: 759px) {
-  .r-bloc { padding-block: 40px; }
-  .r-tete { padding-block: 24px 28px; }
+  .r-bloc { padding-block: 44px; }
+  .feature.sans-visuel { padding: 24px 20px; }
   .r-suite a { font-size: 16px; padding: 14px 16px; }
 }
+@media (prefers-reduced-motion: reduce) { .faq summary::after, .r-suite a { transition: none; } .simu-etapes li { animation: none; } }

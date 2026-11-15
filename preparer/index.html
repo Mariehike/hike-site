@@ -20,8 +20,9 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/archivo-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-extrabold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/polices.css">
-<link rel="stylesheet" href="/assets/accueil.css">
+<link rel="stylesheet" href="/assets/hike.css">
 <link rel="stylesheet" href="/assets/menu.css">
 <link rel="stylesheet" href="/assets/rubriques.css">
 </head>
@@ -31,7 +32,7 @@
     <button class="tiroir-bouton" type="button" aria-controls="tiroir" aria-expanded="false" aria-label="Ouvrir le menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
     <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-    <nav class="menu" aria-label="Menu principal"><a href="/preparer/" aria-current="page">L&#x27;appli</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a></nav>
+    <nav class="menu" aria-label="Menu principal"><a href="/preparer/" aria-current="page">L&#x27;appli</a><a href="/gr34/">Le GR34</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a></nav>
   </div>
 </header>
 <div class="tiroir-voile" hidden></div>
@@ -45,6 +46,7 @@
     <a href="/">Accueil</a>
     <a href="/preparer/" aria-current="page">Préparer ta rando</a>
     <a href="/sur-le-sentier/">Sur le sentier</a>
+    <a href="/courir-sur-le-sentier/">Courir sur le sentier</a>
     <a href="/secours/">Les secours</a>
     <a href="/bons-arrets/">Les bons arrêts</a>
     <a href="/partager/">Partager ta rando</a>
@@ -61,13 +63,15 @@
   </nav>
   <p class="tiroir-sortie">Sur iPhone et Android au printemps 2027.</p>
 </aside>
-<main class="rubrique wrap">
-    <section class="r-tete">
+<section class="tete-photo" style="--photo:url(/img/gr34/baie-de-saint-brieuc.jpg)">
+    <div class="wrap tete-photo-in">
       <p class="fil"><a href="/">Accueil</a> › Préparer ta rando</p>
       <p class="surtitre">1 · Avant de partir</p>
       <h1>Prépare ta rando en quelques minutes.</h1>
       <p class="lead">Tu choisis ton départ, ton nombre de jours et tes km par jour. HIKE découpe le sentier en étapes qui finissent là où tu peux dormir.</p>
-    </section>
+    </div>
+  </section>
+  <main class="rubrique wrap">
     <section class="r-bloc">
       <div class="feature">
         <div class="feature-text">
@@ -81,7 +85,7 @@
             <li><div><strong>Ta façon de dormir.</strong> <span>Camping, bivouac, gîte, hôtel ou chambre d'hôte.</span></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : itinéraire Dinard → Saint-Cast-le-Guildo, 49 km en 3 jours, avec les points d&#x27;eau, toilettes, commerces, campings, gîtes et hôtels sur l&#x27;itinéraire."><img src="/img/itineraire-dinard.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : itinéraire Dinard → Saint-Cast-le-Guildo, 49 km en 3 jours, avec les points d&#x27;eau, toilettes, commerces, campings, gîtes et hôtels sur l&#x27;itinéraire."><img src="/img/itineraire-dinard.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc" id="essaie">
@@ -121,7 +125,31 @@
             <p>On additionne les km et le dénivelé positif divisé par 100 (les « km-effort ») : <b>facile</b> jusqu'à 20, <b>moyen</b> de 20 à 28, <b>difficile</b> au-delà.</p>
           </div>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : Dinard → Saint-Cast-le-Guildo, 49,4 km, 3 jours, 424 m de dénivelé, avec les 3 étapes, leur distance, leur durée et l&#x27;hébergement de chaque soir."><img src="/img/itineraire-etapes.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : Dinard → Saint-Cast-le-Guildo, 49,4 km, 3 jours, 424 m de dénivelé, avec les 3 étapes, leur distance, leur durée et l&#x27;hébergement de chaque soir."><img src="/img/itineraire-etapes.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
+      </div>
+    </section>
+    <section class="r-bloc" id="arrivee">
+      <div class="feature sans-visuel">
+        <div class="feature-text">
+          <span class="etiquette">Nouveau</span> <h2>Ton arrivée, là où tu veux t'arrêter</h2>
+          <p class="body">Un village te plaît plus que celui prévu ? Ouvre l'étape sur la carte et fais glisser l'arrivée du soir le long du sentier.</p>
+          <ul class="points">
+            <li><div><strong>Plus tôt ou Plus loin :</strong> <span>un bouton déplace l'arrivée d'un hébergement à l'autre.</span></div></li>
+            <li><div><strong>Ou n'importe où sur le sentier,</strong> <span>si tu as ton propre point de chute.</span></div></li>
+            <li><div><strong>Le niveau se met à jour,</strong> <span>avec la distance et le dénivelé de la nouvelle journée.</span></div></li>
+            <li><div><strong>Jamais moins de 3 km</strong> <span>dans une journée : HIKE garde des étapes qui ont du sens.</span></div></li>
+          </ul>
+        </div>
+        
+      </div>
+    </section>
+    <section class="r-bloc">
+      <div class="feature sans-visuel">
+        <div class="feature-text">
+          <span class="etiquette">Nouveau</span> <h2>Le temps qu'il fait d'habitude</h2>
+          <p class="body">Tu pars dans trois mois ? La météo du jour ne te dit rien. HIKE te montre les <strong>normales</strong> du secteur pour le mois de ta rando : températures, jours de pluie et vent, sur les trente dernières années (données Météo-France).</p>
+        </div>
+        
       </div>
     </section>
     <section class="r-bloc">
@@ -137,13 +165,13 @@
           </ul>
           <p class="body">Besoin d'aide pour choisir ? Un lien « Comment le choisir ? » mène de ta liste au <a href="/guide-materiel/">guide matériel</a> : sac, chaussures, duvet, tente, vêtements, eau et trousse de secours.</p>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : Prépare ton sac, avec le nombre de jours et de nuits, la météo minimale et maximale, le niveau et l&#x27;hébergement."><img src="/img/sac.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : Prépare ton sac, avec le nombre de jours et de nuits, la météo minimale et maximale, le niveau et l&#x27;hébergement."><img src="/img/sac.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc">
       <div class="feature inverse">
         <div class="feature-text">
-          <span class="pastille-premium">Premium</span><h2>Ton carnet de route, jour par jour</h2>
+          <span class="etiquette premium">Premium</span><h2>Ton carnet de route, jour par jour</h2>
           <p class="body">Toute ta rando dans un carnet qui s'ouvre sans réseau.</p>
           <ul class="points">
             <li><div><strong>Où trouver de l'eau,</strong> <span>au kilomètre près, et les longues portions sans eau connue.</span></div></li>
@@ -152,7 +180,7 @@
             <li><div><strong>Ton hébergement de chaque soir</strong> <span>et ce qu'il reste à réserver.</span></div></li>
           </ul>
         </div>
-        <div class="phone real" role="img" aria-label="Capture de l&#x27;appli HIKE : carnet de route Dinard → Saint-Cast-le-Guildo, jour 1, avec les points d&#x27;eau au kilomètre près et les passages à marée."><img src="/img/carnet-route.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div>
+        <div class="feature-visuel"><div class="tel" role="img" aria-label="Capture de l&#x27;appli HIKE : carnet de route Dinard → Saint-Cast-le-Guildo, jour 1, avec les points d&#x27;eau au kilomètre près et les passages à marée."><img src="/img/carnet-route.jpg" alt="" width="620" height="1342" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
     <section class="r-bloc r-faq">
@@ -165,21 +193,32 @@
       </div>
     </section>
     <nav class="r-suite" aria-label="Rubrique précédente et suivante"><a class="prec" href="/"><small>Retour</small>Accueil</a><a class="suiv" href="/sur-le-sentier/"><small>Suivant</small>Sur le sentier</a></nav>
-    <section class="r-appel">
-      <h2>HIKE sort au printemps 2027.</h2>
-      <p class="lead">Gratuite et sans publicité, sur iPhone et Android, à partir du GR34 et des îles bretonnes.</p>
-    </section>
   </main>
 <footer class="pied">
-  <div class="wrap pied-in">
-    <div class="pied-marque">
-      <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
-      <p>La rando qui s'adapte à toi.</p>
-      <p><a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+  <div class="wrap">
+    <div class="pied-haut">
+      <div class="qr">
+        <img src="/img/qr-app.svg" alt="QR code pour ouvrir hikeapp.fr sur ton téléphone" width="112" height="112" loading="lazy">
+        <div>
+          <p class="pied-titre">HIKE sort au printemps 2027.</p>
+          <p>Gratuite et sans pub, sur iPhone et Android. Scanne le code pour retrouver HIKE sur ton téléphone.</p>
+        </div>
+      </div>
+      <figure class="pied-mot">
+        <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
+        <figcaption>Marie, fondatrice de HIKE</figcaption>
+      </figure>
     </div>
-    <nav aria-label="Informations">
-      <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
-    </nav>
+    <p class="pied-pros">Tu accueilles des randonneurs ? <a href="/pro/">Vérifie ta fiche dans HIKE, gratuitement</a></p>
+    <div class="pied-in">
+      <div class="pied-marque">
+        <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69 48 64 52 57 L63.5 30.4 Q66 26 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="8.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+        <p>La rando qui s'adapte à toi · <a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+      </div>
+      <nav aria-label="Informations">
+        <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
+      </nav>
+    </div>
   </div>
 </footer>
 <script src="/assets/menu.js"></script>

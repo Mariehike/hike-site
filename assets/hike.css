@@ -1,0 +1,169 @@
+/* =====================================================================
+   HIKE · socle commun de hikeapp.fr (refonte « Grande photo » du 15/11/2026)
+   Chargé par toutes les pages, avant menu.css et la feuille propre à la page.
+   Charte : blanc et rouge #E30613, Archivo. L'italique 900 est réservé au logo,
+   aux chiffres et au bouton d'action ; titres en 800 droit.
+   ===================================================================== */
+:root {
+  --paper: #FAF8F6;
+  --card: #FFFFFF;
+  --ink: #2E2E33;
+  --muted: #66666D;
+  --red: #E30613;
+  --red-ink: #C8141D;
+  --line: #EDE6E4;
+  --pale: #FBE9E8;
+  --sea: #D9E5EA;
+  --sand: #F3EEE8;
+  --night: #232327;
+  --night-2: #34343B;
+  --on-red: #FFFFFF;
+  --shadow: rgba(46, 46, 51, .16);
+  --font: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 24px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #151315; --card: #211D20; --ink: #F3EEEC; --muted: #B3AAAD; --red-ink: #FF6B6B;
+    --line: #342D30; --pale: #3A1E21; --sea: #1D282D; --sand: #1E1A1C; --night: #0E0D0E; --night-2: #262226;
+    --shadow: rgba(0, 0, 0, .55); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #151315; --card: #211D20; --ink: #F3EEEC; --muted: #B3AAAD; --red-ink: #FF6B6B;
+  --line: #342D30; --pale: #3A1E21; --sea: #1D282D; --sand: #1E1A1C; --night: #0E0D0E; --night-2: #262226;
+  --shadow: rgba(0, 0, 0, .55); color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; overflow-x: clip;
+}
+img { max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+h1, h2, h3, h4 { margin: 0; font-weight: 800; letter-spacing: -.02em; line-height: 1.08; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, summary:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid var(--red); outline-offset: 3px; border-radius: 8px;
+}
+[id] { scroll-margin-top: 88px; }
+.wrap, .wrap-large { width: 100%; max-width: 1180px; margin: 0 auto; padding-left: var(--gutter); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 760px) { .wrap, .wrap-large { padding-left: 32px; padding-right: 32px; } }
+.visuellement-cache { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- textes ---------- */
+.surtitre, .kicker { font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--red-ink); }
+.titre-section { font-size: clamp(30px, 4.4vw, 46px); max-width: 20ch; margin-top: 10px; }
+.lead { font-size: clamp(18px, 2vw, 20px); color: var(--muted); max-width: 52ch; }
+.fig { font-style: italic; font-weight: 900; letter-spacing: -.02em; }
+
+/* ---------- boutons : un seul plein rouge par écran ---------- */
+.cta, .bouton-secondaire {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px;
+  padding: 0 26px; border-radius: 999px; text-decoration: none; white-space: nowrap; font-size: 16px; line-height: 1;
+}
+.cta { background: var(--red); color: var(--on-red); font-style: italic; font-weight: 900; letter-spacing: .01em; box-shadow: 0 10px 24px -10px rgba(227, 6, 19, .7); }
+.cta:hover { filter: brightness(.94); }
+.bouton-secondaire { border: 2px solid currentColor; font-weight: 700; color: var(--ink); background: transparent; }
+.bouton-secondaire:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.lien-fleche { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--red-ink); text-decoration: none; }
+.lien-fleche::after { content: "→"; transition: transform .2s; }
+.lien-fleche:hover::after { transform: translateX(3px); }
+
+/* ---------- étiquettes ---------- */
+.etiquette { display: inline-block; padding: 5px 10px; border-radius: 999px; background: var(--red); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; line-height: 1; vertical-align: middle; }
+.etiquette.premium { background: var(--ink); color: var(--paper); }
+.bandeau-sombre .etiquette.premium, .pied .etiquette.premium { background: #fff; color: #232327; }
+
+/* ---------- cartes ---------- */
+.carte { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+
+/* ---------- écran de l'appli dans un cadre de téléphone ---------- */
+.tel { border-radius: 34px; border: 8px solid #1d1d21; overflow: hidden; background: #000; box-shadow: 0 30px 60px -20px rgba(30, 20, 20, .45); }
+.tel img { display: block; width: 100%; height: auto; }
+
+/* ---------- en-tête ---------- */
+.entete { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 94%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); transition: box-shadow .2s, background .2s; }
+body.defile .entete { box-shadow: 0 1px 0 var(--line); }
+.entete-in { display: flex; align-items: center; gap: 14px; min-height: 72px; }
+.entete .logo { width: 42px; height: 42px; border-radius: 12px; }
+.logo { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--red); color: var(--on-red); text-decoration: none; }
+.menu { display: none; gap: 30px; margin-left: auto; }
+.menu a { text-decoration: none; font-weight: 600; font-size: 15px; color: inherit; padding: 10px 0; position: relative; }
+.menu a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .2s; }
+.menu a:hover::after, .menu a[aria-current="page"]::after { transform: scaleX(1); }
+@media (min-width: 900px) { .menu { display: flex; } }
+
+/* En-tête posé sur la grande photo de l'accueil : transparent, en blanc, puis clair au défilement. */
+.entete.sur-photo { position: fixed; left: 0; right: 0; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; color: #fff; }
+.entete.sur-photo .tiroir-bouton, .entete.sur-photo .marque-mot { color: #fff; }
+.entete.sur-photo .tiroir-bouton:hover { background: rgba(255, 255, 255, .14); }
+body.defile .entete.sur-photo { background: color-mix(in srgb, var(--paper) 94%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); color: var(--ink); }
+body.defile .entete.sur-photo .tiroir-bouton { color: var(--ink); }
+body.defile .entete.sur-photo .marque-mot { color: var(--red-ink); }
+
+/* ---------- haut de page des rubriques : photo sous un voile sombre ---------- */
+.tete-photo {
+  position: relative; color: #fff; isolation: isolate;
+  background: #2a2426 var(--photo) center var(--cadrage, 62%) / cover no-repeat;
+  min-height: 340px; display: flex; align-items: flex-end;
+}
+.tete-photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(20, 14, 14, .86) 0%, rgba(20, 14, 14, .6) 55%, rgba(20, 14, 14, .3) 100%); }
+.tete-photo-in { padding-top: 56px; padding-bottom: 56px; display: grid; gap: 14px; }
+.tete-photo .fil { font-size: 14px; color: #E9E2E0; }
+.tete-photo .fil a { color: #fff; }
+.tete-photo .surtitre { color: #fff; opacity: .92; }
+/* Sur téléphone le texte occupe toute la largeur : voile plus uniforme pour rester lisible (AA). */
+@media (max-width: 759px) { .tete-photo::before { background: linear-gradient(180deg, rgba(20, 14, 14, .62) 0%, rgba(20, 14, 14, .72) 45%, rgba(20, 14, 14, .88) 100%); } }
+.tete-photo h1 { font-size: clamp(36px, 5.6vw, 64px); max-width: 18ch; }
+.tete-photo .lead { color: #F1ECEA; max-width: 56ch; }
+@media (min-width: 760px) { .tete-photo { min-height: 440px; } .tete-photo-in { padding-bottom: 72px; } }
+
+/* ---------- bandeau sombre de mise en avant ---------- */
+.bandeau-sombre { background: var(--night); color: #fff; padding: 72px 0; }
+.bandeau-sombre .surtitre { color: #FF9A9A; }
+.bandeau-sombre .titre-section { color: #fff; }
+.tuiles { display: grid; gap: 16px; margin-top: 32px; }
+@media (min-width: 760px) { .tuiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
+.tuile { display: flex; flex-direction: column; gap: 10px; background: var(--night-2); border-radius: var(--radius); padding: 26px; text-decoration: none; color: #fff; transition: transform .2s, background .2s; }
+a.tuile:hover { transform: translateY(-3px); background: #3E3E46; }
+.tuile h3 { font-size: 21px; margin-top: 4px; }
+.tuile p { color: #D9D2D0; font-size: 16px; }
+.tuile .lien-fleche { margin-top: auto; padding-top: 6px; color: #FF9A9A; }
+
+/* ---------- pied de page ---------- */
+.pied { background: var(--night); color: #E9E4E2; padding: 56px 0 36px; }
+.pied p { color: #B9B3B1; font-size: 15px; }
+.pied a { color: #F3EEEC; font-weight: 600; text-decoration: none; }
+.pied a:hover { text-decoration: underline; }
+.pied-haut { display: grid; gap: 32px; padding-bottom: 36px; border-bottom: 1px solid #3A3A40; }
+@media (min-width: 900px) { .pied-haut { grid-template-columns: 1.2fr 1fr; align-items: center; } }
+.qr { display: flex; align-items: center; gap: 20px; }
+.qr img { width: 112px; height: 112px; flex-shrink: 0; background: #fff; padding: 8px; border-radius: 14px; }
+.pied-titre { font-size: clamp(22px, 2.6vw, 28px); font-weight: 800; color: #fff !important; letter-spacing: -.01em; margin-bottom: 6px; }
+.pied-mot { margin: 0; padding-left: 20px; border-left: 3px solid var(--red); }
+.pied-mot blockquote { margin: 0; font-size: 19px; font-weight: 600; color: #fff; line-height: 1.4; }
+.pied-mot figcaption { margin-top: 8px; color: #B9B3B1; font-size: 14px; }
+.pied-pros { padding: 22px 0; border-bottom: 1px solid #3A3A40; }
+.pied-pros a { color: #FF9A9A; }
+.pied-in { display: grid; gap: 22px; padding-top: 28px; }
+.pied-marque { display: grid; gap: 12px; justify-items: start; }
+.pied nav { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; }
+@media (min-width: 900px) { .pied-in { grid-template-columns: auto 1fr; align-items: center; } .pied nav { justify-content: flex-end; } }
+@media (max-width: 520px) { .qr { align-items: flex-start; } .qr img { width: 88px; height: 88px; } }
+
+/* ---------- apparition douce ---------- */
+.js .revele { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .revele.vu { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .revele { opacity: 1; transform: none; transition: none; }
+  .tuile, .lien-fleche::after, .menu a::after { transition: none; }
+}
