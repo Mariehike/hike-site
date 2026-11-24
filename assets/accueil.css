@@ -3,25 +3,33 @@
    5 blocs : haut de page plein cadre · l'appli · nouveautés · offres · pied.
    ===================================================================== */
 
-/* ---------- 1. haut de page : le grand « HIKE » rouge, au centre, sur la photo éclaircie ---------- */
+/* haut de page */
+/* ---------- 1. haut de page (piste A du 24/11/2026) : la promesse à gauche, la photo nette à droite ---------- */
 .haut { position: sticky; top: 0; z-index: 0; isolation: isolate; color: var(--ink); background: var(--paper); overflow: hidden;
   min-height: min(760px, 92svh); display: flex; align-items: center; }
-.haut picture { position: absolute; inset: 0; z-index: -1; opacity: .65; }
-.haut-photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; }
-.haut-in { width: 100%; display: grid; justify-items: center; text-align: center; gap: 18px; padding-top: 96px; padding-bottom: 56px; }
-.haut h1 { display: grid; justify-items: center; gap: 4px; }
-.haut .surtitre { color: var(--red-ink); }
-.haut-logo { font: italic 900 clamp(110px, 22vw, 230px)/.84 var(--font); letter-spacing: -.05em; color: var(--red); padding-right: .06em; }
-.haut-tag { font: 800 clamp(21px, 2.6vw, 30px)/1.2 var(--font); color: var(--ink); }
-.haut-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+.haut picture { position: absolute; inset: 0; z-index: -2; }
+.haut-photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%; }
+/* Voile clair : en haut sur téléphone (le texte), à gauche sur ordinateur ; le reste de la photo reste net. */
+.haut::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 90%, transparent) 55%, color-mix(in srgb, var(--paper) 30%, transparent) 78%, transparent 100%); }
+.haut-in { width: 100%; display: grid; justify-items: start; text-align: left; gap: 18px; padding-top: 104px; padding-bottom: 72px; }
+.haut .surtitre { color: var(--red-ink); margin: 0; }
+.haut h1 { margin: 0; max-width: 13em; font: 900 clamp(36px, 5.2vw, 68px)/1.04 var(--font); letter-spacing: -.02em; text-wrap: balance; }
+.haut-lead { margin: 0; max-width: 30em; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.5; text-wrap: pretty; }
+.haut-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
 .haut .bouton-secondaire { background: color-mix(in srgb, var(--paper) 70%, transparent); }
 .haut-mention { font-size: 14px; font-weight: 600; color: var(--ink); background: color-mix(in srgb, var(--paper) 72%, transparent); padding: 6px 14px; border-radius: 16px;
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-@media (min-width: 760px) { .haut-photo { object-position: 50% 60%; } }
+@media (min-width: 760px) {
+  .haut-photo { object-position: 50% 60%; }
+  .haut::before { background: linear-gradient(90deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 88%, transparent) 38%, transparent 66%); }
+  .haut-in { padding-top: 96px; padding-bottom: 56px; }
+}
 /* Lieu de la photo, discret en bas à droite. */
 .haut-legende { position: absolute; right: 16px; bottom: 14px; margin: 0; font-size: 12px; font-weight: 600; color: var(--ink);
   background: color-mix(in srgb, var(--paper) 72%, transparent); padding: 3px 10px; border-radius: 999px; }
 @media (min-width: 760px) { .haut-legende { right: 32px; bottom: 20px; } }
+/* /haut de page */
 /* L'en-tête posé sur la photo claire : texte foncé dès le haut de page. */
 .accueil .entete.sur-photo, .accueil .entete.sur-photo .tiroir-bouton { color: var(--ink); }
 .accueil .entete.sur-photo .marque-mot { color: var(--red-ink); }

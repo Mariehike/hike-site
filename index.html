@@ -19,16 +19,18 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="HIKE">
 <meta name="twitter:card" content="summary_large_image">
-<title>HIKE, l'appli de randonnée itinérante · Le sentier, étape par étape</title>
-<meta name="description" content="HIKE, l&#x27;appli de randonnée itinérante : des étapes qui finissent là où tu peux dormir, une carte hors-ligne et les secours à portée de main. Sortie au printemps 2027.">
-<link rel="preload" href="/assets/fonts/archivo-regular.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="/assets/fonts/archivo-extrabold.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="/assets/fonts/archivo-blackitalic.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="/img/photos/randonneur-ploumanach.jpg" as="image">
+<title>HIKE, l&#x27;appli de randonnée itinérante, étape par étape</title>
+<meta name="description" content="L&#x27;appli de randonnée itinérante : des étapes qui finissent là où tu peux dormir, une carte hors-ligne et les secours à portée de main. Sortie au printemps 2027.">
+<link rel="preload" href="/assets/fonts/archivo-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-blackitalic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/polices.css">
 <link rel="stylesheet" href="/assets/hike.css">
 <link rel="stylesheet" href="/assets/menu.css">
 <link rel="stylesheet" href="/assets/accueil.css">
+<!-- données structurées -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://hikeapp.fr/#site","name":"HIKE","url":"https://hikeapp.fr/","inLanguage":"fr-FR","publisher":{"@id":"https://hikeapp.fr/#organisation"}},{"@type":"Organization","@id":"https://hikeapp.fr/#organisation","name":"HIKE","url":"https://hikeapp.fr/","logo":"https://hikeapp.fr/apple-touch-icon.png","email":"contact@hikeapp.fr"},{"@type":"MobileApplication","@id":"https://hikeapp.fr/#appli","name":"HIKE","url":"https://hikeapp.fr/","operatingSystem":"iOS, Android","applicationCategory":"TravelApplication","inLanguage":"fr-FR","image":"https://hikeapp.fr/og-image.jpg","description":"Appli de randonnée itinérante : des étapes qui finissent là où tu peux dormir, une carte hors-ligne et les secours à portée de main.","publisher":{"@id":"https://hikeapp.fr/#organisation"},"offers":[{"@type":"Offer","name":"HIKE gratuite","price":"0","priceCurrency":"EUR"}]}]}</script>
+<!-- /données structurées -->
 </head>
 <body class="accueil">
 <!-- en-tête commun -->
@@ -72,23 +74,25 @@
 
 <!-- Refonte « Grande photo » du 15/11/2026 : accueil en 5 blocs (haut de page, l'appli, nouveautés, offres, pied).
      Au lancement : le bouton principal devient « Télécharger l'appli ». -->
+<!-- haut de page -->
 <section class="haut" id="haut" aria-labelledby="haut-titre">
   <picture>
     <source media="(min-width: 760px)" srcset="/img/photos/accueil-plage-large.jpg" width="2400" height="1350">
-    <img class="haut-photo" src="/img/photos/accueil-plage.jpg" alt="" width="1200" height="1600" fetchpriority="high" decoding="async">
+    <img class="haut-photo" src="/img/photos/accueil-plage.jpg" alt="La plage de Pors Hir, à Plougrescant, sous le soleil" width="1200" height="1600" fetchpriority="high" decoding="async">
   </picture>
   <div class="wrap haut-in">
-    <h1 id="haut-titre"><span class="surtitre">L'appli du sentier côtier breton</span>
-      <span class="haut-logo">HIKE</span></h1>
-    <p class="haut-tag">Le sentier, étape par étape.</p>
+    <p class="surtitre">L'appli du sentier côtier breton</p>
+    <h1 id="haut-titre">Marche le GR34 à ton rythme. HIKE trouve où dormir chaque soir.</h1>
+    <p class="haut-lead">Des étapes qui finissent là où tu peux dormir, la carte IGN hors-ligne et les secours en un geste.</p>
     <div class="haut-actions">
       <a class="cta" href="/preparer/">Découvrir l'appli</a>
-      <a class="bouton-secondaire" href="/gr34/">Le GR34</a>
+      <a class="bouton-secondaire" href="/gr34/">Voir les 99 étapes</a>
     </div>
     <p class="haut-mention">Gratuite, sans pub · iPhone et Android au printemps 2027</p>
   </div>
   <p class="haut-legende">Pors Hir, Plougrescant</p>
 </section>
+<!-- /haut de page -->
 
 <main>
   <section class="appli" id="appli" aria-labelledby="appli-titre">
