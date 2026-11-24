@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /mon-espace/
 
 Sitemap: https://hikeapp.fr/sitemap.xml

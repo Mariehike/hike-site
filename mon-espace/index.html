@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--
+    Site de préparation HIKE (app.hikeapp.fr), compilé depuis l'appli Flutter
+    (lib/web/main_web.dart). /mon-espace/ est remplacé par
+    `flutter build web --base-href`.
+  -->
+  <base href="/mon-espace/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prépare ta rando ou ton trail sur le GR34, puis pars avec l'appli HIKE.">
+  <!-- Pages réservées aux comptes HIKE : jamais dans les moteurs de recherche. -->
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#E30613">
+
+  <!-- Icônes de la vitrine (hike-site) -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="HIKE">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <title>HIKE — Préparer ma rando</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    /* Fond pendant le chargement : pas d'éclair blanc en mode sombre. */
+    html, body { margin: 0; background: #FAF8F6; }
+    @media (prefers-color-scheme: dark) {
+      html, body { background: #141416; }
+    }
+  </style>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
