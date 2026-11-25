@@ -26,7 +26,7 @@ En créant un compte, l'utilisateur déclare avoir lu et accepté les CGU sans r
 - **POI** (points d'intérêt) : les lieux affichés le long des sentiers (points d'eau, hébergements, commerces, etc.), issus de bases de données publiques ou ajoutés par les Utilisateurs.
 - **Contenu Utilisateur** : tout ce que l'Utilisateur publie dans l'Application (POI, photos, commentaires, avis, signalements, messages).
 - **Partenaire** : une marque, un commerçant ou une plateforme de réservation ayant signé un accord avec l'Éditeur pour proposer des avantages ou des services aux Utilisateurs.
-- **Premium** : l'offre payante décrite à l'article 11, sous forme d'abonnement annuel ou de pass rando de 7 ou 30 jours ; **Abonné** : l'Utilisateur qui a souscrit l'une de ces trois formules.
+- **Premium** : l'offre payante décrite à l'article 11, sous forme d'abonnement annuel ou de pass de 7 ou 30 jours ; **Abonné** : l'Utilisateur qui a souscrit l'une de ces trois formules.
 
 ## Accès à l'application et compte
 
@@ -157,24 +157,24 @@ Le détail des fonctions est présenté dans l'Application avant la souscription
 *11.2 Formules et prix.* Premium est proposé sous trois formules :
 
 - l'abonnement annuel, à 29,95 euros TTC par an, dont les 7 premiers jours sont offerts ; la période offerte n'est accordée qu'une fois par Utilisateur ;
-- le pass rando de 7 jours, à 9,95 euros TTC, qui donne accès à Premium pendant 7 jours à compter de l'achat, ou de la fin du pass en cours (voir ci-dessous) ;
-- le pass rando de 30 jours, à 14,95 euros TTC, qui donne accès à Premium pendant 30 jours à compter de l'achat, ou de la fin du pass en cours (voir ci-dessous).
+- le pass de 7 jours, à 9,95 euros TTC, qui donne accès à Premium pendant 7 jours à compter de l'achat, ou de la fin du pass en cours (voir ci-dessous) ;
+- le pass de 30 jours, à 14,95 euros TTC, qui donne accès à Premium pendant 30 jours à compter de l'achat, ou de la fin du pass en cours (voir ci-dessous).
 
-Les pass rando sont payés en une fois, sans renouvellement automatique ni période offerte.
+Les pass sont payés en une fois, sans renouvellement automatique ni période offerte.
 
-Un pass rando acheté pendant qu'un autre pass est en cours commence à la fin du précédent et dure 7 ou 30 jours pleins. Un pass déjà commencé garde ses dates. Pendant l'abonnement annuel, les pass rando ne sont pas proposés.
+Un pass acheté pendant qu'un autre pass est en cours commence à la fin du précédent et dure 7 ou 30 jours pleins. Un pass déjà commencé garde ses dates. Pendant l'abonnement annuel, les pass ne sont pas proposés.
 
 *11.3 Souscription et paiement.* Premium se souscrit et se paie via l'App Store (Apple) ou Google Play, selon leurs conditions. L'Éditeur n'a jamais accès aux données de paiement.
 
-*11.4 Transparence.* Aucun abonnement ne démarre sans une confirmation explicite de l'Utilisateur, après affichage du prix, de la durée de la période offerte, de la date du premier prélèvement et de la marche à suivre pour résilier. À titre de commodité, sans garantie de réception, l'Application envoie des rappels par notification, si l'Utilisateur a autorisé les notifications : 2 jours avant la fin de la période offerte, 7 jours avant le renouvellement de l'abonnement annuel, et, pour un pass rando, la veille du dernier jour puis ce dernier jour. Aucun rappel n'est envoyé après une résiliation dont l'Application a eu connaissance, ni sans autorisation des notifications. Un bouton « Gérer mon abonnement », dans l'onglet Profil, mène directement à la page de résiliation d'Apple ou de Google.
+*11.4 Transparence.* Aucun abonnement ne démarre sans une confirmation explicite de l'Utilisateur, après affichage du prix, de la durée de la période offerte, de la date du premier prélèvement et de la marche à suivre pour résilier. À titre de commodité, sans garantie de réception, l'Application envoie des rappels par notification, si l'Utilisateur a autorisé les notifications : 2 jours avant la fin de la période offerte, 7 jours avant le renouvellement de l'abonnement annuel, et, pour un pass, la veille du dernier jour puis ce dernier jour. Aucun rappel n'est envoyé après une résiliation dont l'Application a eu connaissance, ni sans autorisation des notifications. Un bouton « Gérer mon abonnement », dans l'onglet Profil, mène directement à la page de résiliation d'Apple ou de Google.
 
-*11.5 Renouvellement et résiliation.* Seul l'abonnement annuel se renouvelle automatiquement, à la fin de chaque année. L'Utilisateur qui souscrit l'abonnement annuel pendant un pass rando en cours le commence tout de suite : les jours restants du pass ne sont pas remboursés. Le pass rando prend fin seul au bout de 7 ou 30 jours, sans démarche de l'Utilisateur. L'Utilisateur peut résilier l'abonnement annuel à tout moment dans les réglages de son compte Apple ou Google, au plus tard 24 heures avant la date de renouvellement. Une résiliation pendant la période offerte évite tout prélèvement. La période en cours reste due et accessible jusqu'à son terme.
+*11.5 Renouvellement et résiliation.* Seul l'abonnement annuel se renouvelle automatiquement, à la fin de chaque année. L'Utilisateur qui souscrit l'abonnement annuel pendant un pass en cours le commence tout de suite : les jours restants du pass ne sont pas remboursés. Le pass prend fin seul au bout de 7 ou 30 jours, sans démarche de l'Utilisateur. L'Utilisateur peut résilier l'abonnement annuel à tout moment dans les réglages de son compte Apple ou Google, au plus tard 24 heures avant la date de renouvellement. Une résiliation pendant la période offerte évite tout prélèvement. La période en cours reste due et accessible jusqu'à son terme.
 
 *11.6 Cartes hors connexion.* Les cartes déjà enregistrées sur le téléphone restent consultables après la fin de Premium. En version gratuite, une seule étape peut être enregistrée hors connexion à la fois.
 
-*11.7 Droit de rétractation.* L'Utilisateur dispose en principe de 14 jours pour se rétracter. En demandant l'accès immédiat aux fonctions Premium, que ce soit par l'abonnement annuel à la fin de la période offerte ou par un pass rando dès son achat, il accepte expressément que le service commence avant la fin de ce délai et renonce à son droit de rétractation (article L. 221-28 du Code de la consommation). Pour un pass acheté pendant un autre pass, l'exécution commence à la date de début de ce pass : jusqu'à cette date, et dans la limite de 14 jours après l'achat, l'Utilisateur conserve son droit de rétractation. Les demandes de remboursement sont traitées par Apple ou Google.
+*11.7 Droit de rétractation.* L'Utilisateur dispose en principe de 14 jours pour se rétracter. En demandant l'accès immédiat aux fonctions Premium, que ce soit par l'abonnement annuel à la fin de la période offerte ou par un pass dès son achat, il accepte expressément que le service commence avant la fin de ce délai et renonce à son droit de rétractation (article L. 221-28 du Code de la consommation). Pour un pass acheté pendant un autre pass, l'exécution commence à la date de début de ce pass : jusqu'à cette date, et dans la limite de 14 jours après l'achat, l'Utilisateur conserve son droit de rétractation. Les demandes de remboursement sont traitées par Apple ou Google.
 
-*11.8 Évolution du prix.* L'Éditeur peut modifier le prix de l'abonnement annuel ou d'un pass rando. Le nouveau prix est annoncé au moins 30 jours avant de s'appliquer ; l'Abonné qui le refuse peut résilier avant.
+*11.8 Évolution du prix.* L'Éditeur peut modifier le prix de l'abonnement annuel ou d'un pass. Le nouveau prix est annoncé au moins 30 jours avant de s'appliquer ; l'Abonné qui le refuse peut résilier avant.
 
 *11.9 Bêta-testeurs.* Les personnes qui ont participé au programme de test de l'Application avant son lancement bénéficient de Premium gratuitement, à vie, tant que l'Application et l'offre Premium existent. Cet avantage est personnel et non cessible.
 
