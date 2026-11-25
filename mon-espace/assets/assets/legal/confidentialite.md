@@ -4,6 +4,8 @@
 
 HIKE collecte le moins de données possible : seulement ce qui fait fonctionner l'appli. Tes données sont hébergées en France et ne sont jamais vendues.
 
+Cette politique vaut pour l'appli et pour « Mon espace », sa version sur ordinateur (hikeapp.fr/mon-espace/) : même compte, mêmes données. Sur Mon espace, ta session est gardée dans ton navigateur (stockage local), seulement pour que tu restes connecté·e ; elle s'efface quand tu te déconnectes. Pas de cookie, pas de mesure d'audience. La connexion avec Google passe par la page de Google.
+
 La responsable du traitement est Marie ROLLAND, qui édite l'appli sous le nom HIKE, 5 allée Alfred Sisley, 35760 Saint-Grégoire.
 
 Pour toute question ou demande sur tes données : contact@hikeapp.fr. HIKE n'a pas désigné de délégué à la protection des données, cette désignation n'étant pas obligatoire pour son activité.
