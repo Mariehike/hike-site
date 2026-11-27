@@ -21,7 +21,7 @@ En créant un compte, l'utilisateur déclare avoir lu et accepté les CGU sans r
 - **Application** : l'application mobile HIKE, disponible sur iOS et Android.
 - **Éditeur** : Marie ROLLAND, éditrice de l'Application sous le nom HIKE.
 - **Utilisateur** : toute personne qui télécharge l'Application et crée un Compte pour l'utiliser.
-- **Compte** : l'espace personnel créé par l'Utilisateur avec son adresse email, un mot de passe et un pseudo.
+- **Compte** : l'espace personnel créé par l'Utilisateur avec son adresse e-mail, un mot de passe et un pseudo.
 - **Itinéraire** : le parcours découpé en étapes que l'Application propose à partir des choix de l'Utilisateur (durée, villages de départ et d'arrivée, distance par jour).
 - **POI** (points d'intérêt) : les lieux affichés le long des sentiers (points d'eau, hébergements, commerces, etc.), issus de bases de données publiques ou ajoutés par les Utilisateurs.
 - **Contenu Utilisateur** : tout ce que l'Utilisateur publie dans l'Application (POI, photos, commentaires, avis, signalements, messages).
@@ -38,19 +38,19 @@ L'Éditeur fait ses meilleurs efforts pour que l'Application soit accessible en 
 
 **Article 5 — Compte utilisateur**
 
-*5.1 Création.* L'utilisation de l'Application nécessite un Compte. L'Utilisateur fournit une adresse email valide, un mot de passe et un pseudo. Le pseudo est visible des autres Utilisateurs ; il ne doit pas être injurieux, trompeur ni reprendre l'identité d'une autre personne ou d'une marque.
+*5.1 Création.* L'utilisation de l'Application nécessite un Compte. L'Utilisateur fournit une adresse e-mail valide, un mot de passe et un pseudo. Le pseudo est visible des autres Utilisateurs ; il ne doit pas être injurieux, trompeur ni reprendre l'identité d'une autre personne ou d'une marque.
 
 *5.2 Âge minimum.* L'Application est ouverte aux personnes de 15 ans et plus. Les mineurs de 15 à 18 ans doivent avoir l'accord de leurs parents ou de leur représentant légal.
 
 *5.3 Sécurité.* L'Utilisateur garde son mot de passe confidentiel. Toute action réalisée depuis son Compte est réputée faite par lui. En cas d'usage frauduleux, il prévient l'Éditeur sans délai.
 
-*5.4 Suppression.* L'Utilisateur peut supprimer son Compte à tout moment depuis l'onglet Profil. La suppression efface définitivement son profil, ses itinéraires, ses sacs, ses randonnées enregistrées et ses objets personnels. Les POI qu'il a ajoutés restent visibles pour la communauté, mais ne sont plus rattachés à son pseudo.
+*5.4 Suppression.* L'Utilisateur peut supprimer son Compte à tout moment depuis l'onglet Profil. La suppression efface définitivement son profil, ses itinéraires, ses sacs, ses randonnées enregistrées et partagées, ses objets personnels, son carnet de notes et toutes ses photos. Les POI et signalements qu'il a ajoutés restent visibles pour la communauté, sans photo et sans être rattachés à son pseudo.
 
 ## Description des services
 
 **Article 6 — Services proposés**
 
-L'Application aide l'Utilisateur à préparer et réaliser des randonnées itinérantes sur les sentiers qu'elle couvre (au lancement : le GR34 et les tours de plusieurs îles bretonnes, dont Bréhat, l'Île-aux-Moines et Belle-Île ; d'autres sentiers et d'autres îles ensuite). Elle propose notamment :
+L'Application aide l'Utilisateur à préparer et réaliser des randonnées et des sorties en trail sur les sentiers qu'elle couvre (au lancement : le GR®34 et les tours de plusieurs îles bretonnes, dont Bréhat, l'Île-aux-Moines et Belle-Île ; d'autres sentiers et d'autres îles ensuite). Elle propose notamment :
 
 - une carte, consultable aussi hors connexion pour les portions téléchargées ;
 - un générateur d'itinéraire découpé en étapes, sans limite d'itinéraires ;
@@ -73,7 +73,7 @@ L'Éditeur peut faire évoluer, ajouter ou retirer des fonctions à tout moment,
 
 *7.1 Une aide, pas un guide.* L'Application est un outil d'aide à la préparation et à l'orientation. Elle ne remplace ni l'expérience, ni le jugement de l'Utilisateur, ni un guide professionnel, ni une carte papier et une boussole. Les tracés, distances, durées, dénivelés, POI et prévisions météo sont donnés à titre indicatif.
 
-*7.2 Le terrain prime.* Sur place, l'Utilisateur suit le balisage officiel du sentier, les panneaux et les consignes locales (arrêtés municipaux ou préfectoraux, fermetures, déviations, horaires de marée, interdictions de bivouac ou de camping sauvage). L'Application rappelle certaines de ces règles quand elles lui sont connues (par exemple le bivouac interdit sur toute l'île de Belle-Île) ; leur absence ne signifie pas que le bivouac est autorisé. En cas de différence entre l'Application et le terrain, le terrain l'emporte.
+*7.2 Le terrain prime.* Sur place, l'Utilisateur suit le balisage officiel du sentier, les panneaux et les consignes locales (arrêtés municipaux ou préfectoraux, fermetures, déviations, horaires de marée, interdictions de bivouac ou de camping sauvage). L'Application rappelle certaines de ces règles quand elles lui sont connues (par exemple le bivouac interdit sur toute Belle-Île) ; leur absence ne signifie pas que le bivouac est autorisé. En cas de différence entre l'Application et le terrain, le terrain l'emporte.
 
 *7.3 Responsabilité de l'Utilisateur.* La randonnée comporte des risques normaux et prévisibles : chutes, passages en bord de falaise, marées, changements de météo, fatigue. L'Utilisateur choisit un itinéraire adapté à sa condition physique, à son expérience et aux conditions du jour. Il s'équipe correctement, consulte la météo officielle avant de partir, informe un proche de son parcours et renonce ou fait demi-tour si les conditions l'exigent.
 
@@ -192,7 +192,8 @@ L'Application utilise des données de tiers, sous leurs licences respectives. Le
 - Tracés, POI, transports et passages à marée : © les contributeurs OpenStreetMap, Open Database License (ODbL), complétés par les Utilisateurs.
 - Communes et villages : API Géo (geo.api.gouv.fr), Licence Ouverte Etalab.
 - Établissements de santé et défibrillateurs : FINESS et Géo'DAE (data.gouv.fr), Licence Ouverte Etalab.
-- Météo : MET Norway (Institut météorologique norvégien), licence Creative Commons BY 4.0 (creativecommons.org/licenses/by/4.0). Données adaptées : prévisions résumées par jour.
+- Météo : MET Norway (Institut météorologique norvégien), licence Creative Commons BY 4.0 (creativecommons.org/licenses/by/4.0). Données adaptées : prévisions résumées par jour et par heure.
+- Normales climatiques : Météo-France, Licence Ouverte Etalab 2.0.
 - Marées : SHOM (Service hydrographique et océanographique de la Marine), vignettes officielles affichées sans modification, avec leur source et leur date de mise à jour.
 
 « GR® » et « GR de Pays® » sont des marques déposées de la Fédération française de la randonnée pédestre. HIKE n'est ni éditée ni approuvée par cette fédération.
@@ -241,4 +242,4 @@ L'Utilisateur consommateur peut aussi recourir gratuitement au médiateur de la 
 
 À défaut d'accord, le litige est porté devant les tribunaux compétents, dans les conditions prévues par la loi pour les consommateurs.
 
-*Version du 13 novembre 2026.*
+*Version du 27 novembre 2026.*
