@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E30613">
+<meta name="robots" content="noindex">
+<title>Teste HIKE en bêta, du 1er janvier au 28 février 2027</title>
+<meta name="description" content="Inscris-toi à la bêta de HIKE : deux mois pour tester l&#x27;appli de randonnée sur iPhone ou Android, Premium à vie offert aux testeur·euses.">
+<link rel="canonical" href="https://hikeapp.fr/beta/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hikeapp.fr/beta/">
+<meta property="og:title" content="Teste HIKE en bêta, du 1er janvier au 28 février 2027">
+<meta property="og:description" content="Inscris-toi à la bêta de HIKE : deux mois pour tester l&#x27;appli de randonnée sur iPhone ou Android, Premium à vie offert aux testeur·euses.">
+<meta property="og:image" content="https://hikeapp.fr/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="HIKE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://hikeapp.fr/"},{"@type":"ListItem","position":2,"name":"Teste HIKE en bêta, du 1er janvier au 28 février 2027","item":"https://hikeapp.fr/beta/"}]}</script>
+<link rel="preload" href="/assets/fonts/archivo-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/polices.css">
+<link rel="stylesheet" href="/assets/hike.css">
+<link rel="stylesheet" href="/assets/menu.css">
+<link rel="stylesheet" href="/assets/rubriques.css">
+<style>
+.inscription { display: grid; gap: 14px; max-width: 34em; margin: 20px 0 0; }
+.inscription label, .inscription legend { font-weight: 700; }
+.inscription input[type=email], .inscription input[type=text] { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; }
+.inscription fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+.inscription .choix { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; }
+.inscription .choix input { margin-top: 4px; accent-color: var(--red); }
+.inscription button { min-height: 48px; padding: 12px 24px; border: 0; border-radius: 999px; font: inherit; cursor: pointer; justify-self: start; }
+.inscription button[disabled] { opacity: .6; cursor: progress; }
+.inscription .piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.inscription-message { margin: 0; font-weight: 700; }
+.inscription-message.erreur { color: var(--red-ink); }
+.previens { background: var(--sand); border-radius: var(--radius); padding: 24px; margin: 32px 0; }
+.previens h2 { margin-top: 0; }
+</style>
+</head>
+<body>
+<header class="entete">
+  <div class="wrap entete-in">
+    <button class="tiroir-bouton" type="button" aria-controls="tiroir" aria-expanded="false" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+    <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69.43 48.8 64.4 52 57 L63.5 30.4 Q65.95 24.74 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="10.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+    <nav class="menu" aria-label="Menu principal"><a href="/preparer/">L&#x27;appli</a><a href="/gr34/">Le GR34</a><a href="/tarifs/">Tarifs</a><a href="/aide/">Aide</a><a href="/pro/">Pros</a><a href="/mon-espace/">Mon espace</a></nav>
+  </div>
+</header>
+<div class="tiroir-voile" hidden></div>
+<aside class="tiroir" id="tiroir" aria-label="Menu" aria-hidden="true">
+  <div class="tiroir-tete">
+    <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69.43 48.8 64.4 52 57 L63.5 30.4 Q65.95 24.74 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="10.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+    <button class="tiroir-fermer" type="button" aria-label="Fermer le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <p class="tiroir-titre">Préparer en ligne</p>
+  <nav class="tiroir-nav" aria-label="Mon espace">
+    <a href="/mon-espace/">Mon espace</a>
+  </nav>
+  <p class="tiroir-titre">L'appli</p>
+  <nav class="tiroir-nav" aria-label="Rubriques">
+    <a href="/" aria-current="page">Accueil</a>
+    <a href="/preparer/">Préparer ta rando</a>
+    <a href="/sur-le-sentier/">Sur le sentier</a>
+    <a href="/courir-sur-le-sentier/">Courir sur le sentier</a>
+    <a href="/secours/">Les secours</a>
+    <a href="/bons-arrets/">Les bons arrêts</a>
+    <a href="/partager/">Partager ta rando</a>
+    <a href="/tarifs/">Gratuit &amp; Premium</a>
+    <a href="/pro/">Pour les pros</a>
+  </nav>
+  <p class="tiroir-titre">Aller plus loin</p>
+  <nav class="tiroir-nav" aria-label="Autres pages">
+    <a href="/gr34/">Le GR34</a>
+    <a href="/guide-materiel/">Guide matériel</a>
+    <a href="/randonner-au-feminin/">Randonner au féminin</a>
+    <a href="/aide/">Aide</a>
+    <a href="mailto:contact@hikeapp.fr">Nous écrire</a>
+  </nav>
+  <p class="tiroir-sortie">Sur iPhone et Android au printemps 2027.</p>
+</aside>
+<section class="tete-photo" style="--photo:url(/img/photos/sentier-caillebotis.jpg)">
+    <div class="wrap tete-photo-in">
+      <p class="fil"><a href="/">Accueil</a> › Teste HIKE en bêta, du 1er janvier au 28 février 2027</p>
+      <p class="surtitre">Bêta</p>
+      <h1>Teste HIKE avant tout le monde.</h1>
+      <p class="lead">Deux mois pour marcher avec HIKE et me dire ce qui coince, avant la sortie du printemps 2027.</p>
+    </div>
+  </section>
+  <main class="rubrique wrap">
+    <section class="r-bloc">
+      <h2>Comment ça se passe</h2>
+      <ul class="points">
+        <li><div><strong>Du 1er janvier au 28 février 2027,</strong> <span>sur iPhone (TestFlight) et sur Android (test fermé Google Play).</span></div></li>
+        <li><div><strong>Au moins 2 sorties réelles</strong> <span>avec HIKE, sur le GR34 ou près de chez toi.</span></div></li>
+        <li><div><strong>Passe en mode avion par moments,</strong> <span>pour vérifier que tout marche sans réseau.</span></div></li>
+        <li><div><strong>Tes retours</strong> <span>passent par la languette « Signaler un problème » de l'appli.</span></div></li>
+        <li><div><strong>Premium à vie</strong> <span>pour les testeur·euses, pour te dire merci.</span></div></li>
+      </ul>
+    </section>
+    <section class="r-bloc" id="inscription">
+      <h2>Je m'inscris à la bêta</h2>
+      <form class="inscription" data-inscription="beta" method="post" action="#" novalidate>
+        <div><label for="beta-email">Ton e-mail</label>
+        <input type="email" id="beta-email" name="email" autocomplete="email" required></div>
+        <div><label for="beta-prenom">Ton prénom (facultatif)</label>
+        <input type="text" id="beta-prenom" name="prenom" autocomplete="given-name"></div>
+        <fieldset>
+          <legend>Ton téléphone</legend>
+          <label class="choix"><input type="radio" name="telephone" value="iphone"> iPhone</label>
+          <label class="choix"><input type="radio" name="telephone" value="android"> Android</label>
+        </fieldset>
+        <fieldset>
+          <legend>Un peu de contexte (facultatif)</legend>
+          <label class="choix"><input type="checkbox" name="gr34"> Tu marches sur le GR34 ?</label>
+          <label class="choix"><input type="checkbox" name="lien_marie"> Tu connais Marie ?</label>
+          <label class="choix"><input type="checkbox" name="sans_reseau"> OK pour passer en mode avion par moments ?</label>
+        </fieldset>
+        <label class="choix"><input type="checkbox" name="accord" required> J'accepte de recevoir des e-mails sur la bêta de HIKE. Je peux me désinscrire à tout moment.</label>
+        <div class="piege" aria-hidden="true"><label>Ne remplis pas ce champ<input type="text" name="site_web" tabindex="-1" autocomplete="off"></label></div>
+        <button class="cta" type="submit">Je m'inscris à la bêta</button>
+        <p class="inscription-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section class="previens" id="previens-moi">
+      <h2>Préviens-moi de la sortie</h2>
+      <p>Laisse ton e-mail : je t'écris une seule fois, le jour où HIKE sort sur iPhone et Android.</p>
+      <form class="inscription" data-inscription="sortie" method="post" action="#" novalidate>
+        <label for="sortie-email">Ton e-mail</label>
+        <input type="email" id="sortie-email" name="email" autocomplete="email" required>
+        <div class="piege" aria-hidden="true"><label>Ne remplis pas ce champ<input type="text" name="site_web" tabindex="-1" autocomplete="off"></label></div>
+        <button class="cta" type="submit">Préviens-moi</button>
+        <p class="inscription-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-haut">
+      <div class="qr">
+        <img src="/img/qr-app.svg" alt="QR code pour ouvrir hikeapp.fr sur ton téléphone" width="112" height="112" loading="lazy">
+        <div>
+          <p class="pied-titre">HIKE sort au printemps 2027.</p>
+          <p>Gratuite et sans pub, sur iPhone et Android. Scanne le code pour retrouver HIKE sur ton téléphone.</p>
+        </div>
+      </div>
+      <figure class="pied-mot">
+        <blockquote>« J'ai créé l'appli que j'aurais voulu avoir sur le sentier. »</blockquote>
+        <figcaption>Marie, fondatrice de HIKE</figcaption>
+      </figure>
+    </div>
+    <p class="pied-pros">Tu accueilles des randonneurs ? <a href="/pro/">Vérifie ta fiche dans HIKE, gratuitement</a></p>
+    <div class="pied-in">
+      <div class="pied-marque">
+        <a class="marque" href="/" aria-label="HIKE, accueil"><span class="logo"><svg class="logo-symbole" viewBox="0 -3 100 100" aria-hidden="true"><path d="M8 82 C10 62 22 48 38 48 C30 52 29 62 36 66 C42 69.43 48.8 64.4 52 57 L63.5 30.4 Q65.95 24.74 68.5 30.4 L92 82 Z"/><circle cx="84" cy="16" r="10.5"/></svg></span><span class="marque-mot" aria-hidden="true">HIKE</span></a>
+        <p>La rando qui s'adapte à toi · <a href="mailto:contact@hikeapp.fr">contact@hikeapp.fr</a></p>
+      </div>
+      <nav aria-label="Informations">
+        <a href="/gr34/">Le GR34</a><a href="/aide/">Aide</a><a href="/pro/">Espace pros</a><a href="/cgu/">Conditions d'utilisation</a><a href="/confidentialite/">Confidentialité</a><a href="/mentions-legales/">Mentions légales</a><a href="/suppression-compte/">Supprimer mon compte</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script src="/assets/menu.js"></script>
+<script>
+(function () {
+  var URL_INSCRIPTION = "https://cnoywnzhuztapmzgzaep.supabase.co/functions/v1/inscription";
+  var debut = Date.now();
+  var forms = document.querySelectorAll('form[data-inscription]');
+  Array.prototype.forEach.call(forms, function (form) {
+    var message = form.querySelector('.inscription-message');
+    var bouton = form.querySelector('button[type=submit]');
+    function dire(texte, erreur) {
+      message.textContent = texte;
+      message.className = 'inscription-message' + (erreur ? ' erreur' : '');
+    }
+    function coche(nom) { var c = form.elements[nom]; return !!(c && c.checked); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (bouton.disabled) return;
+      if (form.getAttribute('data-inscription') === 'beta' && !coche('accord')) {
+        dire('Coche la case d’accord pour recevoir les e-mails de la bêta.', true);
+        return;
+      }
+      if (form.getAttribute('data-inscription') === 'beta' && !form.querySelector('input[name=telephone]:checked')) {
+        dire('Dis-moi si tu as un iPhone ou un Android.', true);
+        return;
+      }
+      var donnees = { type: form.getAttribute('data-inscription'), email: form.elements.email.value.trim(),
+        piege: form.elements.site_web ? form.elements.site_web.value : '', ms: Date.now() - debut };
+      if (donnees.type === 'beta') {
+        donnees.prenom = form.elements.prenom.value.trim();
+        var tel = form.querySelector('input[name=telephone]:checked');
+        if (tel) donnees.telephone = tel.value;
+        donnees.gr34 = coche('gr34');
+        donnees.lienMarie = coche('lien_marie');
+        donnees.sansReseau = coche('sans_reseau');
+      }
+      bouton.disabled = true;
+      dire('Envoi en cours…', false);
+      fetch(URL_INSCRIPTION, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(donnees) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { status: r.status, json: j }; }); })
+        .then(function (r) {
+          if (r.status === 200 && r.json.ok) {
+            dire('Regarde tes e-mails pour confirmer ton inscription.', false);
+            form.reset();
+          } else if (r.status === 400 && r.json.erreur === 'email') {
+            dire('Cette adresse e-mail ne semble pas valide : vérifie-la et réessaie.', true);
+            bouton.disabled = false;
+          } else if (r.status === 400) {
+            dire('Il manque une information : vérifie le formulaire et réessaie.', true);
+            bouton.disabled = false;
+          } else {
+            dire('Le service est indisponible, réessaie dans un moment.', true);
+            bouton.disabled = false;
+          }
+        })
+        .catch(function () {
+          dire('Le service est indisponible, réessaie dans un moment.', true);
+          bouton.disabled = false;
+        });
+    });
+  });
+})();
+</script>
+</body>
+</html>
