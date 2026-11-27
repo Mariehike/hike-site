@@ -35,7 +35,7 @@ Pour toute question ou demande sur tes données : contact@hikeapp.fr. HIKE n'a 
 - **Avis sur l'appli et messages au support** : traiter ta demande, améliorer l'appli. Intérêt légitime. 3 ans.
 - **Problèmes signalés pendant la bêta** (bouton « Signaler un problème ») : ton message, le nom de l'écran affiché, la version de l'appli et le système du téléphone (iOS ou Android), que tu vois avant d'envoyer. Jamais de capture d'écran ni ta position. Corriger les bugs. Intérêt légitime. 3 ans.
 - **Données techniques** (modèle de téléphone, version du système et de l'appli, rapports de plantage) : corriger les bugs, sécuriser le service. Intérêt légitime. 90 jours chez Sentry, 12 mois au plus. Ces rapports ne contiennent ni ton nom, ni ton e-mail, ni ta position.
-- **Premium (abonnement ou pass)** (formule, statut, dates de début et de fin, de la période offerte et du renouvellement, transmis par Apple ou Google via RevenueCat) : te donner accès aux fonctions Premium et, si tu as autorisé les notifications, t'envoyer les rappels avant la fin d'un pass, de la période offerte et avant le renouvellement de l'abonnement. Exécution du contrat. Durée de l'abonnement, puis archivage comptable 10 ans.
+- **Premium (abonnement ou pass)** (formule, statut, dates de début et de fin, de la période offerte et du renouvellement, transmis par Apple ou Google via RevenueCat) : te donner accès aux fonctions Premium et, si tu as autorisé les notifications, t'envoyer les rappels avant la fin d'un pass, de la période offerte et avant le renouvellement de l'abonnement. Exécution du contrat. Durée de l'abonnement ou du pass, puis effacé avec ton compte. Les pièces comptables sont les relevés de ventes d'Apple et de Google, sans ton nom ni ton e-mail : ils sont gardés 10 ans, comme la loi l'exige.
 - **Clics sur « Réserver avec HIKE »** (quand la fonction sera disponible) : comptés par jour et par étape, sans aucun identifiant, pour suivre l'usage du service. Intérêt légitime.
 
 HIKE ne collecte pas tes données de paiement : Apple et Google les gèrent directement.
@@ -53,7 +53,7 @@ HIKE ne conserve jamais le tracé détaillé de tes randonnées. Ta position ne 
 - **Partage de position en direct** : seulement si tu l'actives toi-même. Ta dernière position est alors envoyée à nos serveurs environ une fois par minute (toutes les 3 minutes en mode économie de batterie). Elle est visible par les personnes à qui tu as envoyé le lien de suivi et par les amis que tu choisis dans l'appli, avec ton pseudo, le titre de la rando et les kilomètres parcourus. Le partage s'arrête quand tu le coupes, à la fin de la rando ou au plus tard après 24 heures, et la position est alors effacée.
 - **Bouton SOS** : pour afficher la commune et le département à donner aux secours, ta position est envoyée à l'API Géo de l'État (geo.api.gouv.fr), sans ton identité et sans être enregistrée par HIKE. Sans réseau, l'appli cherche le village le plus proche sur ton téléphone.
 - **Message de secours** : quand tu utilises le bouton SOS, ta position est ajoutée au SMS que tu envoies toi-même ; elle ne passe pas par nos serveurs.
-- **Météo et marées** : pour la météo, les coordonnées des villages de ton itinéraire (ou ta position, arrondie à environ 1 km) passent par nos serveurs, qui interrogent le service météo sans ton identité. Pour les marées, l'appli choisit sur ton téléphone le port le plus proche : seul le nom de ce port est demandé au SHOM, jamais ta position. Les normales de saison (données publiques de Météo-France) sont incluses dans l'appli : elles s'affichent sans réseau et rien n'est envoyé.
+- **Météo et marées** : pour la météo, les coordonnées des villages de ton itinéraire (ou ta position, arrondie à environ 1 km sur ton téléphone avant l'envoi) passent par nos serveurs, qui interrogent le service météo sans ton identité. Pour les marées, l'appli choisit sur ton téléphone le port le plus proche : seul le nom de ce port est demandé au SHOM, jamais ta position. Les normales de saison (données publiques de Météo-France) sont incluses dans l'appli : elles s'affichent sans réseau et rien n'est envoyé.
 - **Refuser** : tu peux refuser ou retirer l'autorisation à tout moment dans les réglages du téléphone. Carte, itinéraires et checklist restent utilisables ; seuls le suivi et le comptage des kilomètres ne fonctionnent plus.
 
 La géolocalisation n'est jamais partagée avec des Partenaires.
@@ -75,6 +75,8 @@ Seule HIKE a accès à tes données, avec l'aide de prestataires techniques qui 
 - **MET Norway** (Institut météorologique norvégien) : prévisions météo. Reçoit des coordonnées arrondies depuis nos serveurs, ni ton identité ni ton adresse IP. Norvège (pays de l'Espace économique européen).
 - **SHOM** : horaires de marées. Reçoit le nom du port affiché et, comme tout site web, l'adresse IP du téléphone. France.
 - **API Géo** (État, geo.api.gouv.fr) : nom de la commune et du département pour le bouton SOS. Reçoit ta position, sans ton identité. France.
+- **GitHub** (GitHub Pages) : hébergement du site hikeapp.fr, de Mon espace et de la page de suivi en direct. Reçoit l'adresse IP des visiteurs, y compris des proches qui suivent une sortie. États-Unis.
+- **unpkg** : la page de suivi en direct y charge sa carte (bibliothèque Leaflet). Reçoit l'adresse IP de la personne qui suit. États-Unis.
 - **IGN (Géoplateforme)** : fonds de carte (reçoit les zones de carte affichées) et recherche du point de départ de « M'y rendre » (reçoit le texte cherché ou la position, sans ton identité). France.
 - **Sentry** (Functional Software) : rapports de plantage de l'appli (erreur, modèle de téléphone, version), sans nom, e-mail, position ni adresse IP conservée. Hébergé dans l'Union européenne (Allemagne).
 - **RevenueCat** : suivi des abonnements Premium achetés sur l'App Store ou Google Play. Reçoit un identifiant technique de ton compte (pas ton e-mail) et l'historique de tes achats transmis par Apple ou Google, jamais tes coordonnées bancaires ni ta position. États-Unis.
@@ -82,7 +84,7 @@ Seule HIKE a accès à tes données, avec l'aide de prestataires techniques qui 
 
 Certains prestataires sont des sociétés américaines. Quand des données peuvent être consultées depuis l'extérieur de l'Union européenne, ce transfert est encadré par les clauses contractuelles types de la Commission européenne ou par le cadre de protection des données UE–États-Unis.
 
-Les liens vers des sites extérieurs (horaires BreizhGo et SNCF, plateformes de réservation, Suricate) ouvrent ces sites dans ton navigateur : leurs propres politiques s'y appliquent.
+Les liens vers des sites extérieurs (horaires BreizhGo et SNCF, plateformes de réservation, Suricate) ouvrent ces sites dans ton navigateur : leurs propres politiques s'y appliquent. Quand tu touches « Y aller » ou un lieu de soins, l'appli ouvre Plans (Apple) ou Google Maps avec le lieu visé et, pour l'itinéraire, ta position : c'est toi qui le déclenches, et leur politique s'applique.
 
 Tes données peuvent aussi être communiquées aux autorités si la loi l'exige.
 
